@@ -1,0 +1,9 @@
+.andon-prod {
+  width: 100%; /* garante largura total */
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 4px;
+  /* box-shadow: 0 8px 18px rgba(36, 55, 130, 0.1);
+} */
+}

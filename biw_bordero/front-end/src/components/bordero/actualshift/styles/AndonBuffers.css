@@ -1,0 +1,21 @@
+.andon-buffers {
+  display: flex;
+  flex-direction: column; /* um embaixo do outro */
+  align-items: center; /* centraliza horizontal */
+  gap: 5px; /* espaço entre os filhos */
+
+  background: var(--bg-standard);
+  color: var(--gray-700);
+  padding: 15px;
+  border-radius: 14px;
+  font-family: "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
+  border: 1px solid var(--gray-300);
+  height: 100%;
+}
+
+.buffer-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 13px 18px;
+  /* box-shadow: 0 8px 18px rgba(36, 55, 130, 0.1); */
+}

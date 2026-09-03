@@ -1,0 +1,579 @@
+/* CONTAINER PRINCIPAL */
+.validation-container {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  /* gap: var(--spacing-lg); */
+}
+
+/* BOTÃO VOLTAR */
+.validation-back-btn {
+  background: var(--blue-standard);
+  color: var(--text-white);
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-xs);
+  transition: var(--transition);
+  width: fit-content;
+}
+
+.validation-back-btn:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+/* TÍTULOS */
+.validation-title {
+  color: var(--text-primary);
+  font-size: var(--font-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-lg);
+}
+
+.validation-section-title {
+  color: var(--text-primary);
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-semibold);
+  border-left: 3px solid var(--blue-standard);
+  padding-left: var(--spacing-sm);
+  margin: var(--spacing-sm) 0;
+}
+
+/* BLOCO DE INFORMAÇÕES */
+.validation-info-box {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  box-shadow: var(--shadow-sm);
+  gap: var(--spacing-sm);
+}
+
+.validation-info-box p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+}
+
+
+
+/* FORMULÁRIO */
+.validation-form {
+  background: var(--bg-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.validation-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.validation-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  font-size: var(--font-sm);
+  /* padding-bottom: var(--spacing-xs); */
+  margin: var(--spacing-sm) 0 ;
+}
+
+/* INPUTS */
+.validation-input,
+.validation-textarea {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  color: var(--text-dark);
+  width: 100%;
+  transition: var(--transition);
+  background: var(--bg-input);
+}
+
+.validation-input:focus,
+.validation-textarea:focus {
+  outline: none;
+  border-color: var(--blue-standard);
+  box-shadow: 0 0 0 2px var(--blue-light-bg);
+}
+
+.validation-textarea {
+  /* min-height: 10px; */
+  resize: vertical;
+}
+
+.validation-text {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-muted);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  border: 1px solid var(--border-light);
+  /* margin-top: var(--spacing-xs); */
+  /* margin-bottom: var(--spacing-md) */
+}
+
+/* RADIO BUTTONS */
+.validation-radio-group {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.validation-radio-group label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.validation-radio-group input[type="radio"] {
+  accent-color: var(--blue-standard);
+}
+
+/* BOTÃO CONFIRMAR */
+.validation-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-sm);
+}
+
+.validation-btn {
+  background-color: var(--blue-standard);
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-sm);
+  transition: var(--transition);
+}
+
+.validation-btn:hover {
+  background-color: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+/* HISTÓRICO */
+.validation-history {
+  /* margin-top: var(--spacing-sm); */
+}
+
+.validation-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-white);
+}
+
+.validation-table th,
+.validation-table td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--border-light);
+  text-align: left;
+  font-size: var(--font-xs);
+}
+
+.validation-table th {
+  background: var(--blue-light-bg);
+  color: var(--blue-standard);
+  font-weight: var(--font-weight-semibold);
+}
+
+.validation-table tr:last-child td {
+  border-bottom: none;
+}
+
+.validation-table tr:hover td {
+  background: var(--gray-100);
+}
+
+/* MESSAGES */
+.message-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  margin: var(--spacing-xl) 0;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-md);
+  box-shadow: var(--shadow-sm);
+  animation: fadeIn 0.4s ease-in-out;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Loading */
+.message-loading {
+  background-color: var(--gray-100);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+/* Spinner */
+.loading-spinner {
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid var(--border-light);
+  border-top: 2.5px solid var(--blue-standard);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+/* Error */
+.message-error {
+  background-color: var(--color-error-bg);
+  border: 1px solid var(--color-error-border);
+  color: var(--color-error);
+}
+
+.validation-error-message {
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+  border: 1px solid var(--color-error-border);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-top: var(--spacing-md);
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.validation-error-message::before {
+  content: "⚠️";
+}
+
+/* FINALIZADO */
+.finalized-message {
+  background-color: var(--blue-light-bg);
+  color: var(--blue-standard);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  margin-top: var(--spacing-sm);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-md);
+}
+
+/* ANIMAÇÕES */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Container Principal - Limitamos a altura aqui */
+.validation-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  /* Define a altura baseada na tela (ex: 85% da altura da visão) 
+     ou um valor fixo como 800px */
+  min-height: 350px;
+  /* height: 440px; */
+
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Coluna da Esquerda: Formulário (Geralmente não scrolla ou scrolla pouco) */
+.validation-content-left {
+  flex: 0 0 380px;
+  min-height: 350px;
+    max-height: 420px;
+    overflow-y: auto;
+  /* Respeita a altura do pai */
+  /* background: #ffffff;
+  border: 1px solid #e2e8f0; */
+  border-radius: 12px;
+  /* padding: 20px; */
+  overflow-y: auto;
+  /* Se o formulário for grande, ele scrolla sozinho */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); */
+}
+
+/* Coluna da Direita: Árvore de Relações (A que vai scrollar muito) */
+.validation-content-right {
+  flex: 1;
+  /* height: 100%; */
+  /* OBRIGATÓRIO: Ocupa a altura total do pai */
+  min-width: 0;
+
+
+
+  /* Habilita os scrolls internos */
+  overflow-y: auto;
+  /* Scroll vertical para níveis de causa/efeito */
+  overflow-x: auto;
+  /* Scroll horizontal se houver muitas máquinas no mesmo nível */
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* Para o SVG se posicionar corretamente */
+}
+
+
+
+/* ============================================================
+   CONTAINER DO GRAFO
+   ============================================================ */
+
+.relacao-graph {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 300px;
+  padding: 32px 16px;
+  gap: 24px;
+  /* Espaçamento entre os níveis */
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 12px;
+  background: var(--color-surface, #f8fafc);
+  overflow: hidden;
+  /* Evita que o SVG vaze se o container for pequeno */
+}
+
+/* Camada 1: SVG de Conexões (Fica atrás dos cards) */
+.relacao-graph__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Permite clicar nos cards através do SVG */
+  z-index: 1;
+  overflow: visible;
+}
+
+/* Camada 2: Níveis e Labels */
+.relacao-graph__level {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.relacao-graph__level-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 16px;
+  background: var(--color-surface, #f8fafc);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Camada 3: Linha de Cards */
+.relacao-graph__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  /* Espaço horizontal entre cards para as setas passarem */
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+/* ============================================================
+   CARDS DE INFORMAÇÃO
+   ============================================================ */
+
+.tree-card {
+  background: #ffffff;
+  border: 1.5px solid var(--color-border, #e2e8f0);
+  border-radius: 10px;
+  padding: 12px 16px;
+  min-width: 200px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.tree-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+/* Card da Parada Principal (Destaque) */
+.tree-card--current {
+  border: 2px solid #3b82f6;
+  background: #eff6ff;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Indicadores Laterais de Causa (Vermelho) e Efeito (Azul) */
+.tree-card--rel {
+  border-left-width: 4px;
+}
+
+/* Se nível for negativo (Causa) */
+[class*="level--"].tree-card--rel {
+  border-left-color: #ef4444;
+}
+
+/* Se nível for positivo (Efeito) */
+.tree-card--level-1.tree-card--rel:not(.tree-card--current) {
+  border-left-color: #3b82f6;
+}
+
+/* ============================================================
+   CONTEÚDO INTERNO DOS CARDS
+   ============================================================ */
+
+.tree-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.tree-card__linha {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #fff;
+  background: #64748b;
+  /* Cor neutra padrão */
+}
+
+/* Cores dinâmicas para a tag de linha baseada no contexto */
+.tree-card--current .tree-card__linha {
+  background: #3b82f6;
+}
+
+.relacao-graph__level:first-child .tree-card__linha {
+  background: #ef4444;
+}
+
+.tree-card__duracao {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  font-variant-numeric: tabular-nums;
+}
+
+.tree-card__maquina {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.tree-card__row {
+  display: flex;
+  gap: 4px;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.tree-card__label {
+  color: #94a3b8;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tree-card__value {
+  color: #334155;
+  font-weight: 500;
+}
+
+.tree-card__tag {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #3b82f6;
+  background: #dbeafe;
+  padding: 1px 6px;
+  border-radius: 999px;
+}
+
+/* Estado Vazio */
+.relacao-tree-empty {
+  grid-column: 1 / -1;
+  padding: 40px;
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.relacao-graph__level-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+  /* Um cinza médio/azulado */
+  margin-bottom: 20px;
+}
+
+/* Linhas decorativas laterais para criar um efeito de divisor */
+.relacao-graph__level-label::before,
+.relacao-graph__level-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.relacao-graph__level-label::before {
+  margin-right: 15px;
+}
+
+.relacao-graph__level-label::after {
+  margin-left: 15px;
+}

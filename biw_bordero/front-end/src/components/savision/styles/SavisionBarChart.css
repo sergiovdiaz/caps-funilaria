@@ -1,0 +1,72 @@
+.savisionbarchart {
+  max-width: 100%; /* não estoura em telas menores */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.savisionbarchart__header {
+  display: flex;
+  gap: 20px; /* espaçamento entre os cards */
+  justify-content: space-between;
+  font-family: "Segoe UI", "Segoe", sans-serif;
+}
+
+/* Card do turno */
+.savisionbarchart__turno-card {
+  background: rgba(255, 255, 255, 0);
+
+  padding: 16px;
+  flex: 1; /* cada card ocupa espaço igual */
+}
+
+/* Título do turno */
+.savisionbarchart__turno-title {
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+
+/* Barra de progresso do card */
+.savisionbarchart__progress-bar {
+  display: flex;
+  height: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+}
+
+/* Parte OK da barra */
+.savisionbarchart__progress-ok {
+  background-color: #4caf50;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Parte KO da barra */
+.savisionbarchart__progress-ko {
+  background-color: #f44336;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.savisionbarchart__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.savisionbarchart__chart-wrapper {
+  width: 100%; /* gráfico ocupa toda a largura do container */
+}

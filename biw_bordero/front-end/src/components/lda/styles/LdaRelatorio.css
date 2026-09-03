@@ -1,0 +1,789 @@
+/* ─── VARIÁVEIS DE CORES E CONFIGURAÇÕES ──────────────────────────────────── */
+:root {
+    --color-blue: #1a2e6f;
+    --color-blue-light: #2d4aa8;
+    --color-blue-muted: #e8ecf7;
+    --color-bg: #f0f3fa;
+    --color-bg-card: #ffffff;
+    --color-border: #d0d8e8;
+    --color-border-light: #e8ecf5;
+    --color-text-primary: #1a2e6f;
+    --color-text-secondary: #3d4f6b;
+    --color-text-muted: #7a8aaa;
+
+    --color-red: #c0392b;
+    --color-red-bg: #fdf0ee;
+    --color-amber: #c07000;
+    --color-amber-bg: #fdf6e3;
+    --color-green: #1a7a45;
+    --color-green-bg: #eaf5ee;
+}
+
+/* ─── ESTRUTURA GLOBAL E LAYOUT TV (HORIZONTAL) ─────────────────────────── */
+.lda-dashboard {
+    background-color: var(--color-bg);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.lda-dashboard__content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    /* Sidebar fixa esquerda + Painel analítico horizontal */
+    gap: 15px;
+    padding: 0 20px;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.lda-dashboard__left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lda-dashboard__right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ─── TÍTULOS DE SEÇÃO ───────────────────────────────────────────────────── */
+.lda-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-muted);
+  
+}
+
+/* ─── LIVE CARD (BIG NUMBER TEMPO REAL) ──────────────────────────────────── */
+.lda-live-card {
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    background: #fff;
+    border: 1px solid var(--color-border-light);
+
+    box-shadow: 0 6px 18px rgba(26, 46, 111, 0.08);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.lda-live-card--alert {
+    border-color: rgba(192, 57, 43, 0.18);
+    border-left: 6px solid var(--color-red);
+}
+
+.lda-live-card--success {
+    border-color: rgba(26, 122, 69, 0.18);
+    border-left: 6px solid var(--color-green);
+}
+
+.lda-live-card__label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.lda-live-card--alert .lda-live-card__label {
+    color: var(--color-red);
+}
+
+.lda-live-card--success .lda-live-card__label {
+    color: var(--color-green);
+}
+
+.lda-live-card__main {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.lda-live-card__value {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.lda-live-card--alert .lda-live-card__value {
+    color: #d63031;
+    text-shadow: 0 0 20px rgba(214, 48, 49, 0.18);
+}
+
+.lda-live-card--success .lda-live-card__value {
+    color: #00a854;
+    text-shadow: 0 0 20px rgba(0, 168, 84, 0.15);
+}
+
+.lda-live-card__subtext {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    margin-bottom: 6px;
+}
+
+.lda-live-card__status-msg {
+    font-size: 13px;
+    color: var(--color-green);
+    font-weight: 600;
+}
+
+.lda-live-card__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.lda-live-card__chip {
+    font-size: 11px;
+    background-color: #ffffff;
+    border: 1.5px solid rgba(192, 57, 43, 0.3);
+    color: var(--color-red);
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-weight: 700;
+}
+
+/* ─── CARDS SECUNDÁRIOS (HOJE) ───────────────────────────────────────────── */
+.lda-sub-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lda-sub-card {
+    border-radius: 12px;
+    padding: 14px 16px;
+
+    background: #fff;
+    border: 1px solid var(--color-border-light);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* leve destaque lateral */
+.lda-sub-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.lda-sub-card--amber::before {
+    background: var(--color-amber);
+}
+
+.lda-sub-card--green::before {
+    background: var(--color-green);
+}
+
+.lda-sub-card--red::before {
+    background: var(--color-red);
+}
+
+.lda-sub-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 46, 111, 0.10);
+}
+
+.lda-sub-card__label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.lda-sub-card--amber .lda-sub-card__label {
+    color: var(--color-amber);
+}
+
+.lda-sub-card--green .lda-sub-card__label {
+    color: var(--color-green);
+}
+
+.lda-sub-card--red .lda-sub-card__label {
+    color: var(--color-red);
+}
+
+.lda-sub-card__value {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.lda-sub-card--amber .lda-sub-card__value {
+    color: var(--color-amber);
+}
+
+.lda-sub-card--green .lda-sub-card__value {
+    color: var(--color-green);
+}
+
+.lda-sub-card--red .lda-sub-card__value {
+    color: var(--color-red);
+}
+
+.lda-sub-card__info {
+    font-size: 10px;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+.lda-sub-card__icon {
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+/* ─── FILTROS DO PERÍODO ─────────────────────────────────────────────────── */
+.lda-filters {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: 12px;
+    padding: 10px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.lda-filters__dates {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lda-filters__label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+.lda-filters__input {
+    padding: 5px 10px;
+    border-radius: 7px;
+    border: 1px solid var(--color-border);
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg);
+    outline: none;
+}
+
+.lda-filters__group {
+    display: flex;
+    gap: 6px;
+}
+
+.lda-filters__btn {
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: var(--color-blue-muted);
+    color: var(--color-text-primary);
+    transition: all 0.2s;
+}
+
+.lda-filters__btn--active {
+    background-color: var(--color-blue);
+    color: #ffffff;
+}
+
+.lda-filters__btn--active-light {
+    background-color: var(--color-blue-light);
+    color: #ffffff;
+}
+
+.lda-filters__turnos {
+    margin-left: auto;
+    display: flex;
+    gap: 5px;
+}
+
+/* ─── KPI CARDS PERÍODO ──────────────────────────────────────────────────── */
+.lda-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.lda-kpi-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.lda-kpi-card--red {
+    border-top: 3px solid var(--color-red);
+}
+
+.lda-kpi-card--amber {
+    border-top: 3px solid var(--color-amber);
+}
+
+.lda-kpi-card--green {
+    border-top: 3px solid var(--color-green);
+}
+
+.lda-kpi-card--blue {
+    border-top: 3px solid var(--color-blue);
+}
+
+.lda-kpi-card__label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 4px;
+}
+
+.lda-kpi-card__value {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.lda-kpi-card--red .lda-kpi-card__value {
+    color: var(--color-red);
+}
+
+.lda-kpi-card--amber .lda-kpi-card__value {
+    color: var(--color-amber);
+}
+
+.lda-kpi-card--green .lda-kpi-card__value {
+    color: var(--color-green);
+}
+
+.lda-kpi-card--blue .lda-kpi-card__value {
+    color: var(--color-blue);
+}
+
+.lda-kpi-card__sub {
+    font-size: 10px;
+    color: var(--color-text-muted);
+    margin-top: 3px;
+}
+
+/* ─── GRÁFICOS ───────────────────────────────────────────────────────────── */
+.lda-charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 16px;
+}
+
+.lda-chart-panel {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.lda-chart-panel__title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-text-primary);
+}
+
+.lda-chart-panel__desc {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    margin-bottom: 12px;
+}
+
+/* ─── SEÇÃO TABELA ───────────────────────────────────────────────────────── */
+.lda-table-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.lda-table-card__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.lda-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.lda-tab {
+    flex: 1;
+    padding: 4px 6px;
+
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    background: transparent;
+
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+
+    transition: 0.15s ease;
+}
+
+.lda-tab span {
+    font-weight: 800;
+    color: var(--color-text-primary);
+}
+
+/* hover simples */
+.lda-tab:hover {
+    background: var(--color-blue-muted);
+}
+
+/* ativo */
+.lda-tab.is-active {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    color: var(--color-text-primary);
+}
+
+/* destaque por tipo (bem leve) */
+.lda-tab--extracao.is-active {
+    border-bottom: 2px solid var(--color-red);
+}
+
+.lda-tab--insercao.is-active {
+    border-bottom: 2px solid var(--color-green);
+}
+.lda-table-card__tab-btn {
+    padding: 6px 16px;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: var(--color-bg-card);
+    color: var(--color-text-secondary);
+    transition: all 0.2s;
+}
+
+.lda-table-card__tab-btn--first {
+    border-radius: 8px 0 0 8px;
+}
+
+.lda-table-card__tab-btn--last {
+    border-radius: 0 8px 8px 0;
+    border-left: none;
+}
+
+.lda-table-card__tab-btn--active {
+    background-color: var(--color-blue);
+    color: #ffffff;
+    border-color: var(--color-blue);
+}
+
+.lda-table-card__search {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    font-size: 13px;
+    outline: none;
+    background-color: var(--color-bg);
+    color: var(--color-text-secondary);
+    width: 180px;
+}
+
+/* ─── TABELA COMPONENTE (OTIMIZADA PARA DASHBOARD/TV) ────────────────────── */
+.lda-table-wrapper {
+    overflow-x: auto;
+    max-height: 230px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+}
+
+/* Customização da barra de rolagem */
+.lda-table-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.lda-table-wrapper::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+.lda-table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--color-text-muted);
+    border-radius: 3px;
+}
+
+.lda-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+.lda-table__th {
+    padding: 10px 12px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    background-color: var(--color-bg-card);
+    z-index: 10;
+}
+
+.lda-table__tr {
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background-color 0.15s ease;
+}
+
+/* Efeito Zebra Padrão para linhas normais */
+.lda-table__tr:nth-child(even) {
+    background-color: rgba(240, 243, 250, 0.4);
+}
+
+/* ── MODIFICADORES DIDÁTICOS DE CONTEXTO (EXTRAÇÃO E INSERÇÃO) ── */
+
+/* Linha de Extração: Fundo vermelho sutil "Regal" com texto adaptado para leitura */
+.lda-table__tr--extracao {
+    background-color: var(--color-red-bg) !important;
+}
+
+.lda-table__tr--extracao .lda-table__td {
+    color: #5c1d16;
+    /* Tom vinho escuro para contraste perfeito na TV */
+}
+
+.lda-table__tr--extracao .lda-table__td--bold {
+    color: var(--color-red);
+}
+
+/* Linha de Inserção: Fundo verde sutil com texto adaptado */
+.lda-table__tr--insercao {
+    background-color: var(--color-green-bg) !important;
+}
+
+.lda-table__tr--insercao .lda-table__td {
+    color: #0e4224;
+    /* Verde escuro focado em legibilidade */
+}
+
+.lda-table__tr--insercao .lda-table__td--bold {
+    color: var(--color-green);
+}
+
+/* Hover refinado independente do tipo de linha */
+.lda-table__tr:hover {
+    background-color: var(--color-blue-muted) !important;
+}
+
+.lda-table__tr:hover .lda-table__td {
+    color: var(--color-text-secondary);
+    /* Restaura cor original no foco */
+}
+
+.lda-table__td {
+    padding: 6px 6px;
+    vertical-align: middle;
+    color: var(--color-text-secondary);
+}
+
+.lda-table__td--bold {
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+/* TIMESTAMPS / DATA E HORA */
+.lda-table__timestamp {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.lda-table__timestamp--empty {
+    color: var(--color-text-muted);
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Badges */
+.lda-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid transparent;
+}
+
+.lda-badge--fora {
+    background-color: var(--color-red-bg);
+    color: var(--color-red);
+    border-color: rgba(192, 57, 43, 0.18);
+}
+
+.lda-badge--dentro {
+    background-color: var(--color-green-bg);
+    color: var(--color-green);
+    border-color: rgba(26, 122, 69, 0.18);
+}
+
+.lda-badge__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.lda-badge--fora .lda-badge__dot {
+    background-color: var(--color-red);
+}
+
+.lda-badge--dentro .lda-badge__dot {
+    background-color: var(--color-green);
+}
+
+.lda-table__empty {
+    text-align: center;
+    padding: 36px;
+    color: var(--color-text-muted);
+    font-size: 13px;
+}
+
+/* FOOTER */
+.lda-footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 16px;
+    font-size: 11px;
+    color: var(--color-text-muted);
+}
+
+/* ─── RECHARTS TOOLTIP ───────────────────────────────────────────────────── */
+.lda-tooltip {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    box-shadow: 0 4px 16px rgba(26, 46, 111, 0.12);
+    font-size: 13px;
+}
+
+.lda-tooltip__title {
+    margin: 0 0 6px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.lda-tooltip__item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+.lda-tooltip__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.lda-tooltip__text {
+    color: var(--color-text-secondary);
+}
+
+.lda-refresh-indicator__time {
+    font-size: 13px;
+    color: #5a6a8a;
+    font-weight: 500;
+    gap: 6px;
+}
+
+.lda-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    border: 1px solid transparent;
+}
+
+/* EXTRAÇÃO */
+.lda-badge--extracao {
+    background: var(--color-red-bg);
+    color: var(--color-red);
+    border-color: rgba(192, 57, 43, 0.25);
+}
+
+/* INSERÇÃO */
+.lda-badge--insercao {
+    background: var(--color-green-bg);
+    color: var(--color-green);
+    border-color: rgba(26, 122, 69, 0.25);
+}
+
+/* bolinha */
+.lda-badge__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.lda-badge--extracao .lda-badge__dot {
+    background: var(--color-red);
+}
+
+.lda-badge--insercao .lda-badge__dot {
+    background: var(--color-green);
+}

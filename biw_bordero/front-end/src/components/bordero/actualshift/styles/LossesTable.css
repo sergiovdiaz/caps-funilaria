@@ -1,0 +1,266 @@
+/* ==========================
+   CONTAINER
+========================== */
+.losses-container {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================
+   TOOLBAR / HEADER
+========================== */
+.losses-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.losses-toolbar__label {
+  color: var(--blue-standard, #243782);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  border-bottom: 2px solid var(--blue-standard, #243782);
+  padding-bottom: 4px;
+  letter-spacing: 0.4px;
+  flex: 1;
+}
+
+/* Botões iguais CAP */
+.losses-btn {
+  background: #e9ecef;
+  border: 1px solid #ced4da;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blue-standard, #243782);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* .losses-btn:hover {
+  background: #dee2e6;
+} */
+
+.losses-btn--active {
+  background: var(--blue-standard, #243782);
+  color: #fff;
+  border-color: var(--blue-standard, #243782);
+}
+
+/* ==========================
+   WRAPPER TABELA
+========================== */
+.losses-table-wrapper {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 540px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* ==========================
+   TABELA
+========================== */
+.losses-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+/* ==========================
+   HEADER
+========================== */
+.losses-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: var(--blue-standard, #243782);
+  color: #fff;
+  text-align: left;
+  padding: 10px !important;
+  font-weight: 500;
+  font-size: 0.85rem;
+  z-index: 2;
+}
+
+/* ==========================
+   FILTROS
+========================== */
+.losses-filter-input,
+.losses-filter-select {
+  width: 100%;
+  padding: 3px 6px;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  outline: none;
+  transition:
+    border 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.losses-filter-input:focus,
+.losses-filter-select:focus {
+  border-color: var(--blue-standard, #243782);
+  box-shadow: 0 0 2px var(--blue-standard, #243782);
+}
+
+/* ==========================
+   BODY
+========================== */
+.losses-table td {
+  padding: 14px 10px !important;
+  font-size: 0.8rem;
+  /* border-bottom: 1px solid #e5e7eb; */
+  color: #333;
+  white-space: nowrap;
+}
+
+.losses-table tbody tr:hover {
+  background-color: #f0f4ff;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+/* ==========================
+   GRUPOS
+========================== */
+.losses-group-row {
+  background-color: #e9efff;
+  font-weight: 600;
+  border-bottom: 1px solid #c7d5ff;
+}
+
+.losses-group-row:hover {
+  background-color: #dde7ff;
+}
+
+/* Subgrupo (Máquina) */
+.losses-subgroup-row {
+  /* background-color: #f3f6ff; */
+  font-weight: 500;
+  border-left: 3px solid var(--blue-standard, #243782);
+}
+
+/* Alarmes */
+.losses-table__row--nested {
+  background-color: #ffffff;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.losses-table__row--nested td {
+  padding-left: 26px !important;
+}
+
+/* ==========================
+   BOTÕES DE ORDENAÇÃO
+========================== */
+.losses-sort-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 0px 7px;
+}
+
+.losses-sort-btn:hover {
+  color: #ffd966;
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+.losses-table-wrapper::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.losses-table-wrapper::-webkit-scrollbar-thumb {
+  background: #a1a1aa;
+  border-radius: 4px;
+}
+
+.losses-table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* ==========================
+   FILTRO STATUS - TOOLBAR
+========================== */
+.losses-toolbar__filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto; /* empurra para a direita */
+}
+
+.losses-toolbar__filter label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blue-standard, #243782);
+  white-space: nowrap;
+}
+
+.losses-toolbar__filter select {
+  min-width: 130px;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #243782;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Hover */
+.losses-toolbar__filter select:hover {
+  border-color: var(--blue-standard, #243782);
+  background-color: #f8faff;
+}
+
+/* Focus */
+.losses-toolbar__filter select:focus {
+  border-color: var(--blue-standard, #243782);
+  box-shadow: 0 0 0 2px rgba(36, 55, 130, 0.2);
+}
+
+/* Opções */
+.losses-toolbar__filter option {
+  font-size: 0.8rem;
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+@media (max-width: 900px) {
+  .losses-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .losses-toolbar__filter {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 6px;
+  }
+
+  .losses-toolbar__filter select {
+    width: 160px;
+  }
+}

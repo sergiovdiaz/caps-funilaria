@@ -1,0 +1,109 @@
+.fcb {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+}
+
+.fcb__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.3px;
+  margin: var(--spacing-xxs) 0;
+}
+
+.fcb__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fcb__input {
+  width: 100%;
+  padding: 6px 28px 6px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-white);
+  font-size: 0.8rem;
+  font-family: var(--font-family);
+  color: var(--text-dark);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+}
+
+.fcb__input:hover {
+  border-color: #c0c4d4;
+}
+
+.fcb__input:focus {
+  outline: none;
+  border-color: var(--blue-standard);
+  box-shadow: 0 0 0 2px var(--blue-light-bg);
+}
+
+.fcb__input--error {
+  border-color: var(--color-error) !important;
+  background: var(--color-error-bg);
+}
+
+.fcb__arrow {
+  position: absolute;
+  right: 8px;
+  font-size: 0.65rem;
+  color: #9ca3af;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: all;
+}
+
+.fcb__options {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  background: var(--bg-white);
+  border: 1px solid var(--blue-standard);
+  border-radius: var(--radius-md);
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(36, 55, 130, 0.12);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fcb__option {
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid #f0f2f8;
+  transition: background 0.1s;
+}
+
+.fcb__option:last-child {
+  border-bottom: none;
+}
+
+.fcb__option--active,
+.fcb__option:hover {
+  background: var(--blue-light-bg);
+  color: var(--blue-standard);
+  font-weight: 600;
+}
+
+.fcb__options::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.fcb__options::-webkit-scrollbar-thumb {
+  background: #c7d0e0;
+  border-radius: 4px;
+}
+
+.fcb__options::-webkit-scrollbar-track {
+  background: #f5f6fa;
+}

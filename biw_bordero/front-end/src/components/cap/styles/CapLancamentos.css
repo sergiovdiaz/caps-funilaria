@@ -1,0 +1,232 @@
+.cap-lancamentos {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Mensagem sem dados */
+.cap-lancamentos__no-data {
+  text-align: center;
+  color: #7c7c7c;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+/* Container da tabela com scroll horizontal */
+.cap-lancamentos__table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  max-height: 350px;
+}
+
+/* Tabela */
+.cap-lancamentos__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  min-height: 150px;
+
+}
+
+.cap-lancamentos__table th {
+  /* background-color: var(--blue-standard);
+  color: #fff; */
+  background: var(--blue-light-bg);
+   color: var(--blue-standard);
+  color: var(--blue-standard);
+  text-align: left;
+  padding: 10px 16px;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-sm);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.cap-lancamentos__table td {
+  padding: 8px 12px;
+  font-size: var(--font-sm);
+  border-bottom: 1px solid #e5e7eb;
+  color: #333;
+  vertical-align: top;
+}
+
+/* Linhas alternadas e hover */
+.cap-lancamentos__table tr:nth-child(even) {
+  background-color: #f9f9fc;
+}
+
+.cap-lancamentos__table tbody tr:hover {
+  background-color: #e9efff;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+/* Descrição quebrando linha */
+.cap-lancamentos__descricao {
+  max-width: 260px;
+  white-space: normal !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Botão adicionar justificativa */
+.cap-lancamentos__btn-add {
+  align-self: flex-start;
+  background-color: var(--blue-standard);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  max-width: 200px;
+}
+
+.cap-lancamentos__btn-add:hover {
+  background-color: #1e4bb8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cap-lancamentos__btn-add:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll personalizado */
+/* .cap-lancamentos__table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.cap-lancamentos__table-container::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 4px;
+}
+
+.cap-lancamentos__table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #a1a1a1;
+} */
+
+.cap-lancamentos__row-selected {
+  background-color: #c7d5ff !important;
+  box-shadow: inset 0 0 0 2px var(--blue-standard);
+}
+
+.cap-lancamentos__status-badge {
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 6px;
+  /* font-size: 0.75rem;
+  font-weight: 600; */
+  display: inline-block;
+  /* text-transform: uppercase; */
+  /* letter-spacing: 0.5px; */
+  text-align: center;
+}
+
+.filter-header {
+  position: relative;
+  user-select: none;
+}
+
+.filter-arrow {
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--blue-standard);
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+
+  min-width: 80px;
+
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.filter-dropdown {
+  overscroll-behavior: contain;
+}
+
+.filter-option {
+  white-space: nowrap;
+}
+
+.filter-option {
+  padding: 2px 8px;
+  color: #243782;
+  cursor: pointer;
+}
+
+.filter-option:hover {
+  background-color: #e9efff;
+}
+
+.filter-arrow {
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-arrow.filtered {
+  color: #28a745; /* cor quando filtrado */
+  font-weight: bold;
+  transform: rotate(180deg); /* seta invertida opcional */
+}
+
+/* Botão no header da tabela */
+/* Wrapper da tabela para permitir o botão sobreposto */
+.cap-lancamentos__table-wrapper {
+  position: relative;
+  overscroll-behavior: contain;
+}
+
+/* Botão sobreposto no canto superior direito */
+.cap-lancamentos__clear-filters-btn {
+  position: absolute;
+  top: 13px; /* ajuste fino */
+  right: 6px; /* ajuste fino */
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
+  gap: 4px;
+  background: #ffffff00 !important;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid #ccc;
+}
+
+.cap-lancamentos__clear-filters-btn img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.cap-lancamentos__clear-filters-btn:hover img {
+  opacity: 1;
+}
+
+.cap-lancamentos__clear-filters-btn:hover {
+  background: #f0f0f0;
+  border-color: #999;
+}

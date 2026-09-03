@@ -1,0 +1,179 @@
+.savision {
+  background: transparent;
+  background-size: cover;
+  display: flex;
+  flex-direction: column; /* empilha header + conteúdo */
+  align-items: center; /* centraliza conteúdo horizontalmente */
+  width: 100%;
+  min-height: 100vh;
+  animation: moveBg 30s linear infinite;
+  position: relative; /* necessário se usar header absoluto */
+}
+
+@keyframes moveBg {
+  0% {
+    background-position: center top;
+  }
+  50% {
+    background-position: center bottom;
+  }
+  100% {
+    background-position: center top;
+  }
+}
+
+/* header no topo */
+.savision__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* logo à esquerda, menu à direita */
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  /* background: rgba(255, 255, 255, 0.7); opcional para destacar sobre o bg */
+  position: absolute; /* fixa no topo */
+  top: 0;
+  left: 0;
+  z-index: 10; /* garante que fique sobre o conteúdo */
+}
+
+/* logo e menu */
+.savision__logo {
+  height: 27px;
+}
+
+.savision__menu-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  height: 80px;
+}
+
+.savision__menu-icon-img {
+  height: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.savision__menu-icon:hover .savision__menu-icon-img {
+  transform: rotate(15deg);
+}
+
+/* conteúdo centralizado abaixo do header */
+.savision__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  max-width: 1200px;
+  margin-top: 80px; /* afasta do header */
+}
+
+.savision__title-container {
+  text-align: center; /* centraliza os dois textos */
+}
+
+.savision__title {
+  color: #ececec;
+  font-size: 8rem;
+  font-weight: 700;
+  font-family: "Segoe UI", "Roboto", "Helvetica", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+
+  /* animação interativa */
+  /* animation: floatText 6s ease-in-out infinite alternate; */
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+  user-select: none;
+}
+
+.savision__title:hover {
+  text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.6), 0 0 10px #052079;
+  transform: scale(1.05);
+}
+
+.savision__subtitle {
+  margin-top: -0.5rem; /* aproxima do título */
+  color: #d0d0d0;
+  font-size: 1.2rem; /* menor que o título */
+  font-weight: 300;
+  letter-spacing: 1px;
+  font-family: "Segoe UI", "Roboto", "Helvetica", sans-serif;
+  user-select: none;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.savision__subtitle:hover {
+  text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.6), 0 0 10px #052079;
+  transform: scale(1.05);
+}
+
+/* keyframes para o movimento suave */
+@keyframes floatText {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.savision__cases {
+  display: flex;
+  flex-direction: column; /* empilha os botões */
+  gap: 5px; /* espaço entre os botões */
+}
+
+.savision__cases-title {
+  color: #ffffff; /* texto branco */
+  font-size: 1.5rem; /* tamanho chamativo, mas menor que o título principal */
+  font-weight: 700; /* negrito */
+
+  font-family: "Segoe UI", "Roboto", "Helvetica", sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 1.5px 1.5px 6px rgba(0, 0, 0, 0.4); /* sombra suave */
+  margin-bottom: 10px; /* espaço abaixo do título */
+  user-select: none; /* texto não selecionável */
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  text-align: center;
+}
+
+.savision___cases-button {
+  background-color: #1d2e6b; /* cor principal, mesma do título */
+  color: #ffffff; /* texto branco */
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px; /* mais minimalista que antes */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* sombra discreta */
+}
+
+.savision___cases-button:hover {
+  background-color: #15214e; /* tom mais escuro no hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* sombra aumenta levemente */
+}
+
+.savision___cases-button:active {
+  background-color: #162456; /* clique mais escuro */
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.savision___cases-button:disabled {
+  background-color: #b0b6d1; /* cinza azulado */
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.7; /* deixa visualmente mais “desativado” */
+}

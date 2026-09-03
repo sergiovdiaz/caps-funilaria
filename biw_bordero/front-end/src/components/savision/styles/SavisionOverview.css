@@ -1,0 +1,16 @@
+savisionoverview {
+  width: 100%;
+  color: white;
+}
+
+.savisionoverview__charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 colunas */
+  grid-template-rows: auto auto; /* 2 linhas */
+  gap: 10px; /* espaço entre itens */
+  justify-items: center; /* centraliza horizontalmente */
+}
+
+.savisionoverview__charts > :first-child {
+  grid-column: 1 / span 2;
+}

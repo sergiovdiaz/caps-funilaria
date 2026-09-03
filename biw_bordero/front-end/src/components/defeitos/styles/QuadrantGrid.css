@@ -1,0 +1,246 @@
+/* QuadrantGrid.css */
+
+.quadrant-grid {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  min-height: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Card com estilo similar aos filtros */
+.quadrant-grid__card {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  padding: 10px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.quadrant-grid__card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-color: #d0d7e6;
+}
+
+.quadrant-grid__svg-wrapper {
+  flex: 1;
+  min-height: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.quadrant-svg {
+  width: 100% !important;
+  height: 100% !important;
+
+  display: block;
+  object-fit: contain;
+}
+/* Estilos para os elementos do SVG */
+.quadrant-svg .quadrant-area {
+  fill: #8aaaeed2 !important;
+  opacity: 1 !important;
+  cursor: pointer;
+  stroke: #00aaff !important;
+  stroke-width: 2px !important;
+}
+
+/* Hover */
+.quadrant-svg .quadrant-area:not(.selected):hover{
+  opacity: 1 !important;
+  fill: #4a8af4 !important;
+  stroke: #0066cc !important;
+  stroke-width: 3px !important;
+  filter: drop-shadow(0 0 5px rgba(0, 102, 204, 0.3));
+}
+
+/* Selecionado */
+.quadrant-svg .selected {
+  fill: rgba(255, 0, 0, 0.7) !important;
+  stroke: #ff0000 !important;
+  stroke-width: 3px !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.4));
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Animação de pulso para seleção */
+@keyframes pulse {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.4));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.8));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.4));
+  }
+}
+
+/* Loading e erro */
+.quadrant-grid__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  color: #6c757d;
+  font-size: 16px;
+}
+
+.quadrant-grid__error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  padding: 20px;
+  color: #dc3545;
+  background: #f8d7da;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.quadrant-grid__error button {
+  margin-top: 15px;
+  padding: 10px 24px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.quadrant-grid__error button:hover {
+  background: #0056b3;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .quadrant-grid__card {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quadrant-grid {
+    padding: 10px;
+  }
+
+  .quadrant-grid__card {
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .quadrant-grid__svg-wrapper {
+    min-height: 350px;
+    max-height: 70vh;
+  }
+
+  .quadrant-svg path,
+  .quadrant-svg rect,
+  .quadrant-svg polygon {
+    stroke-width: 1.5px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .quadrant-grid {
+    padding: 5px;
+  }
+
+  .quadrant-grid__card {
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  .quadrant-grid__svg-wrapper {
+    min-height: 250px;
+    max-height: 60vh;
+  }
+
+  .quadrant-svg path,
+  .quadrant-svg rect,
+  .quadrant-svg polygon {
+    stroke-width: 1px !important;
+  }
+}
+
+/* ========================================================
+   Novos estilos para suporte a Matriz de Quadrantes (2x2)
+   ======================================================== */
+
+.quadrant-grid__matrix {
+  flex: 1;
+  display: grid;
+  width: 100%;
+  height: 100%;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  gap: 10px;
+
+  min-height: 0;
+}
+
+.quadrant-grid__cell {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 0;
+
+  background: #fafbfc;
+  border: 1px solid #e8ecf4;
+  border-radius: 8px;
+  padding: 8px;
+}
+  
+.quadrant-grid__cell-label {
+  font-size: var(--font-sm, 12px);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--text-secondary, #6c757d);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+  padding-left: 4px;
+}
+
+.quadrant-grid__error-inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: var(--color-error, #dc3545);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* --- Responsividade da Matriz --- */
+@media (max-width: 900px) {
+  .quadrant-grid__matrix {
+    gap: 6px;
+  }
+
+  .quadrant-grid__cell {
+    padding: 4px;
+  }
+
+  .quadrant-grid__cell-label {
+    font-size: 10px;
+  }
+}

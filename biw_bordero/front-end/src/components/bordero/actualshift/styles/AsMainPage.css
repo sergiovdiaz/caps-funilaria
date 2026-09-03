@@ -1,0 +1,102 @@
+/* =========================
+   ROOT
+========================= */
+
+/* =========================
+   BACKEND INFO
+========================= */
+.as-main__info {
+  display: flex;
+  gap: 24px;
+}
+
+.as-main__info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.as-main__info-label {
+  display: block;
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.as-main__info-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blue-standard);
+}
+
+/* =========================
+   ANDON
+========================= */
+.as-main__andon {
+  display: flex;
+  flex: 1;
+  gap: 12px;
+
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Andon screen ---- */
+.as-main__andon-screen {
+  width: 55%;
+  /* max-height: 100px; */
+}
+
+/* ---- Andon buffers ---- */
+.as-main__andon-buffers {
+  width: 45%;
+}
+
+/* =========================
+   PROD
+========================= */
+.as-main__prod {
+  display: flex;
+
+  padding: 18px 24px;
+  margin-top: 24px;
+
+  border-radius: 14px;
+  border: 1px solid var(--gray-300);
+  gap: 10px;
+}
+.as-main__prod-hourly {
+  width: 55%;
+}
+.as-main__prod-losses {
+  width: 45%;
+}
+
+.as-main__lossestable {
+  margin-top: 20px;
+  background: var(--bg-standard);
+  color: var(--gray-700);
+  padding: 24px;
+  border-radius: 14px;
+  font-family: "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
+  border-radius: 14px;
+  border: 1px solid var(--gray-300);
+  min-height: 660px;
+}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .as-main__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .as-main__info {
+    align-self: flex-end;
+  }
+
+  .as-main__andon {
+    flex-direction: column;
+  }
+}

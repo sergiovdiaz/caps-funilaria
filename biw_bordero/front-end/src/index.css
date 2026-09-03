@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: #eff2f8; */
+ 
+}
+:root {
+  --header-height: 50px; /* Defina aqui a altura real do seu header */
+  font-family: var(--font-family);
+}
+
+.app {
+  min-height: 100vh;
+  background-color: #eff2f8;;
+}
+
+.App__content {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  max-width: 250px;
+  background-color: #243782; /* Cor de fundo solicitada */
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+
+  min-height: 100%;
+  flex-grow: 1;
+}
+
+/* Estilo para as opções do menu */
+.sidebar__options {
+  font-family: var(--font-family); 
+  letter-spacing: 3px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 250px;
+}
+
+/* Estilo para cada item do menu */
+.sidebar__item {
+  padding: 15px 20px;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-family: var(--font-family);
+  font-weight: 200;
+  cursor: pointer;
+  background-color: rgb(43, 59, 150);
+  transition: background-color 0.3s ease;
+  color: rgb(203, 207, 231);
+  margin-bottom: 2px; /* Espaçamento entre os itens */
+}
+
+/* Estilo para quando o item do menu é hover */
+.sidebar__item:hover {
+  background-color: #1f307b; /* Um tom mais escuro ao passar o mouse */
+}
+
+.sidebar__item-link {
+  text-decoration: none; /* Remove o sublinhado */
+  display: block;
+  padding: 10px 15px;
+  color: rgb(203, 207, 231);
+}
+
+.sidebar__item-link--active {
+  background-color: #fff; /* Cor de fundo quando ativo */
+  color: #243782; /* Cor do texto quando ativo */
+  text-decoration: none; /* Remove o sublinhado */
+  display: inline-block; /* Permite que o link ocupe a largura necessária */
+  width: 100%; /* Garante que o link ocupe toda a largura disponível */
+  box-sizing: border-box; /* Inclui o padding e a borda no cálculo da largura */
+  padding: 10px 15px; /* Adiciona espaçamento interno ao redor do texto */
+  border-radius: 8px; /* Aplica bordas arredondadas */
+}
+/* Main  */
+.main {
+  background-color: #eff2f8;
+  display: flex;
+  flex-direction: column; /*Empilha os ItemLists na vertical */
+  gap: 0px; /* Espaço entre os itens */
+  flex-grow: 1;
+}
+
+.main__side-by-side {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.main__side-by-side > * {
+  flex: 1;
+}
+
+/* Item list */
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Maior espaço entre os itens */
+  border-radius: 12px; /* Cantos arredondados */
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); Sombra mais suave e moderna */
+
+  padding: 15px 0px 0px 0px; /* Espaçamento interno mais amplo */
+  user-select: none;
+}
+
+.item-list__header {
+  font-family: var(--font-family);
+  display: flex;
+  align-items: center; /* Alinha ícone e título na mesma linha */
+  font-size: 10px; /* Aumenta o tamanho da fonte para mais ênfase */
+  font-weight: 500; /* Peso mais forte para o título */
+  color: #243782; /* Cor do texto para boa legibilidade */
+  letter-spacing: 0.4px; /* Menos espaçamento para um visual mais elegante */
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 10px 15px; /* Maior padding para um visual mais espaçado */
+  border-radius: 8px; /* Bordas arredondadas */
+  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+.item-list__header:hover {
+  background-color: #f1f9fd; /* Cor suave ao passar o mouse */
+}
+
+.item-list__header-icon {
+  margin-right: 12px; /* Maior espaçamento entre a seta e o título */
+  transition: transform 0.3s ease; /* Transição suave para a rotação */
+}
+
+.item-list__header h2 {
+  margin: 0;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.item-list__charts {
+  padding: 5px 0px 15px 35px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Area chart */
+.areachart {
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.areachart__infobox {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 7px; /* Espaço entre os itens */
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: -20px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); Adiciona sombra para dar mais destaque */
+}
+
+.areachart__infobox-item {
+  display: flex;
+  flex-direction: column; /* Exibe o valor em cima e o rótulo abaixo */
+  justify-content: center;
+  align-items: center;
+}
+
+.areachart__infobox-value {
+  font-size: 14px; /* Tamanho um pouco maior para dar ênfase */
+  font-weight: 600; /* Peso da fonte mais suave, mas ainda destacando */
+  color: #34495e; /* Cor mais moderna, um cinza escuro com toque de azul */
+  text-align: center;
+  letter-spacing: 0.5px; /* Menos espaçamento para um visual mais elegante */
+  text-transform: uppercase; /* Transformar as letras em maiúsculas para um estilo mais moderno */
+  background: linear-gradient(
+    to right,
+    #2980b9,
+    #23b2e6
+  ); /* Gradiente de azul */
+  -webkit-background-clip: text;
+  color: transparent; /* Tornar a cor do texto transparente para mostrar o gradiente */
+  padding: 5px 10px; /* Espaçamento interno para um pouco de respiro */
+  border-radius: 5px; /* Bordas arredondadas para suavizar o visual */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar o texto */
+  transition: transform 0.3s ease-in-out; /* Animação suave ao passar o mouse */
+
+}
+
+.areachart__infobox-value:hover {
+  transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+.areachart__infobox-label {
+  font-size: 8.4px; /* Aumentei um pouco o tamanho para o rótulo ficar mais legível */
+
+  color: #141414; /* Cor cinza suave, mais moderna e contrastando bem com o valor */
+  text-align: center;
+  margin-top: 7px; /* Distância mais próxima entre o valor e o rótulo */
+  text-transform: uppercase; /* Maiúsculas para manter o estilo moderno */
+  letter-spacing: 0.4px; /* Espaçamento maior nas letras para dar um toque mais clean */
+  font-weight: 500; /* Peso moderado para não sobrecarregar o visual */
+  transition: color 0.3s ease; /* Transição suave na cor do rótulo ao passar o mouse */
+}
+
+.areachart__infobox-label:hover {
+  color: #3498db; /* Cor mais vibrante ao passar o mouse, para destacar o rótulo */
+}
+
+.CAStartStop {
+  width: 100%;
+  background-color: #eff2f8;
+}

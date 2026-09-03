@@ -1,0 +1,458 @@
+/* ─────────────────────────────────────────────
+   CONTAINER PRINCIPAL DO RESPONSÁVEL
+───────────────────────────────────────────── */
+
+.cap-pendencias-validacao {
+  width: 100%;
+  margin-bottom: var(--spacing-xl);
+  background: var(--bg-standard);
+  border-radius: var(--radius-lg);
+
+  overflow: hidden;
+  padding: 32px;
+
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.cap-pendencias-validacao:hover {
+  box-shadow: var(--shadow-md);
+}
+
+
+/* Faixa azul no topo do card do responsável */
+.cap-pendencias-validacao__title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: 16px 24px;
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-white);
+  letter-spacing: 0.3px;
+
+  background: linear-gradient(135deg, var(--blue-standard), var(--blue-dark));
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+/* ─────────────────────────────────────────────
+   LAYOUT DAS TABELAS
+───────────────────────────────────────────── */
+
+.cap-pendencias-validacao__tables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--bg-standard);
+}
+
+.cap-pendencias-validacao__table-container {
+  flex: 1;
+  min-width: 300px;
+
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+
+  transition: var(--transition);
+}
+
+
+.cap-pendencias-validacao__table-container:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.cap-pendencias-validacao__table td:last-child {
+  text-align: center;
+  /* ou right/left conforme desejado */
+}
+
+
+/* ─────────────────────────────────────────────
+   HEADER DA SEÇÃO (título + stats)
+───────────────────────────────────────────── */
+
+.cappendencias__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+
+  padding: 12px 16px;
+  background: var(--bg-white);
+
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.cappendencias__title {
+  font-size: 11px;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ─────────────────────────────────────────────
+   CARDS DE ESTATÍSTICA
+───────────────────────────────────────────── */
+
+.cappendencias__stats {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.cappendencias__stat-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 5px 10px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.cappendencias__stat-card--warning {
+  background: var(--color-warning-bg);
+  border-color: var(--color-warning-border);
+}
+
+.cappendencias__stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  font-size: 13px;
+  background: var(--bg-standard);
+  border-radius: var(--radius-sm);
+}
+
+.cappendencias__stat-card--warning .cappendencias__stat-icon {
+  background: var(--color-warning-bg);
+}
+
+.cappendencias__stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.cappendencias__stat-label {
+  font-size: 9px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 1px;
+}
+
+.cappendencias__stat-value {
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.cappendencias__stat-card--warning .cappendencias__stat-value {
+  color: var(--color-warning-text);
+}
+
+/* ─────────────────────────────────────────────
+   WRAPPER DA TABELA
+───────────────────────────────────────────── */
+
+.cappendencias__table-container {
+  overflow-x: auto;
+  max-height: 220px;
+}
+
+.cappendencias__table-wrapper {
+  position: relative;
+  overscroll-behavior: contain;
+}
+
+/* ─────────────────────────────────────────────
+   TABELA
+───────────────────────────────────────────── */
+
+.cap-pendencias-validacao__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cap-pendencias-validacao__table th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 9px 14px;
+  background: var(--bg-standard);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  text-align: left;
+  border: none;
+  border-bottom: 2px solid var(--blue-muted);
+  white-space: nowrap;
+}
+
+.cap-pendencias-validacao__table td {
+  padding: 8px 14px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border: none;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: middle;
+}
+
+.cap-pendencias-validacao__table tr:nth-child(even) td {
+  background-color: var(--gray-50);
+}
+
+
+.cap-pendencias-validacao__table tbody tr:hover td {
+  background-color: var(--blue-light-bg);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+/* ─────────────────────────────────────────────
+   LINHA SELECIONADA
+───────────────────────────────────────────── */
+
+.cappendencias__row-selected td {
+  background-color: var(--blue-muted) !important;
+}
+
+.cappendencias__row-selected td:first-child {
+  box-shadow: inset 3px 0 0 var(--blue-standard);
+}
+
+/* ─────────────────────────────────────────────
+   BADGE DE STATUS
+───────────────────────────────────────────── */
+
+.cappendencias__status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.3px;
+  white-space: normal;
+  color: var(--text-white)  ;
+}
+
+/* Ponto colorido antes do texto do badge */
+/* .cappendencias__status-badge::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.7;
+  flex-shrink: 0;
+} */
+
+/* ─────────────────────────────────────────────
+   BOTÃO LIMPAR FILTROS
+───────────────────────────────────────────── */
+
+.cap-lancamentos__clear-filters-wrapper {
+  position: relative;
+}
+
+.cappendencias__clear-filters-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 3px 7px;
+  background: var(--bg-white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.cappendencias__clear-filters-btn img {
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+  transition: opacity var(--transition);
+}
+
+.cappendencias__clear-filters-btn:hover {
+  background: var(--blue-light-bg);
+  border-color: var(--blue-standard);
+}
+
+.cappendencias__clear-filters-btn:hover img {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────
+   FILTROS DE CABEÇALHO
+───────────────────────────────────────────── */
+
+.filter-header {
+  position: relative;
+  user-select: none;
+}
+
+.filter-arrow {
+  margin-left: 4px;
+  font-size: 9px;
+  color: var(--gray-400);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.filter-arrow.filtered,
+.filter-arrow:hover {
+  color: var(--blue-standard);
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 100;
+  min-width: 160px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+
+  max-height: 160px;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+}
+
+.filter-option {
+  padding: 8px 14px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.filter-option:first-child {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.filter-option:hover {
+  background: var(--blue-light-bg);
+  color: var(--text-primary);
+}
+
+
+/* ─────────────────────────────────────────────
+OVERLAY
+───────────────────────────────────────────── */
+
+/* === Modal de Validação === */
+.validation-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeInOverlay 0.2s ease-in-out;
+}
+
+.validation-modal {
+  background: var(--bg-standard);
+  width: 95%;
+  max-width: 1200px;
+  max-height: 90vh;
+  min-height: 80vh;
+  overflow-y: auto;
+  border-radius: 14px;
+  padding: 25px 30px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  animation: scaleIn 0.18s ease-in-out;
+}
+
+.validation-modal__close {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-muted);
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.validation-modal__close:hover {
+  color: var(--blue-standard);
+}
+
+.validation-modal__header {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--blue-standard);
+  border-bottom: 2px solid var(--blue-standard);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.validation-modal__body {
+  padding: var(--spacing-md) 2px;
+}
+
+
+/* ─────────────────────────────────────────────
+   RESPONSIVIDADE
+───────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .cap-pendencias-validacao__tables {
+    flex-direction: column;
+  }
+
+  .cappendencias__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,189 @@
+/* ============================================
+   DATEFIELD - COMPONENTE ISOLADO
+   ============================================ */
+
+.datefield {
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.5rem; */
+    min-width: 180px;
+    flex: 1;
+}
+
+.datefield__label {
+    font-size: var(--font-xxs);
+    font-weight:var(--font-weight-semibold);
+    color: var(--blue-standard, #243782);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+    margin-left: 0.2rem;
+}
+
+.datefield__wrapper {
+    position: relative;
+}
+
+.datefield__wrapper .react-datepicker-wrapper {
+    width: 100%;
+}
+
+.datefield__wrapper .react-datepicker__input-container {
+    width: 100%;
+}
+
+.datefield__input:hover {
+    border-color: var(--blue-standard-light, #3a52a8);
+}
+
+.datefield__input:focus {
+    border-color: var(--blue-standard, #243782);
+    box-shadow: 0 0 0 3px rgba(36, 55, 130, 0.1);
+}
+
+
+.datefield__input {
+    height: 32px;
+    padding: 0 12px;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    color: var(--text-primary);
+    background: white;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+
+
+.datefield__input:focus {
+    border-color: var(--blue-standard);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(36, 55, 130, 0.1);
+}
+
+
+
+.datefield__input:focus-visible {
+    outline: 3px solid var(--blue-standard, #243782);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   CALENDÁRIO
+   ============================================ */
+
+.datefield .react-datepicker {
+    font-family: inherit;
+    border: 2px solid var(--blue-standard, #243782);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(36, 55, 130, 0.15);
+}
+
+.datefield .react-datepicker__header {
+    background-color: var(--blue-standard, #243782);
+    border-bottom: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding-top: 1rem;
+}
+
+.datefield .react-datepicker__current-month {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.datefield .react-datepicker__day-name {
+    color: #ffffff;
+    font-weight: 600;
+    width: 2rem;
+    line-height: 2rem;
+    margin: 0.166rem;
+}
+
+.datefield .react-datepicker__day {
+    width: 2rem;
+    line-height: 2rem;
+    margin: 0.166rem;
+    color: var(--text-primary, #2c3e50);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.datefield .react-datepicker__day:hover {
+    background-color: var(--blue-standard-light, #3a52a8);
+    color: #ffffff;
+}
+
+.datefield .react-datepicker__day--selected,
+.datefield .react-datepicker__day--keyboard-selected {
+    background-color: var(--blue-standard, #243782);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.datefield .react-datepicker__day--selected:hover,
+.datefield .react-datepicker__day--keyboard-selected:hover {
+    background-color: var(--blue-standard-dark, #1a2961);
+}
+
+.datefield .react-datepicker__day--disabled {
+    color: var(--tc-color-border, #d1d9e6);
+    cursor: not-allowed;
+}
+
+.datefield .react-datepicker__day--disabled:hover {
+    background-color: transparent;
+    color: var(--tc-color-border, #d1d9e6);
+}
+
+.datefield .react-datepicker__navigation {
+    top: 1rem;
+}
+
+.datefield .react-datepicker__navigation-icon::before {
+    border-color: #ffffff;
+}
+
+.datefield .react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
+    border-color: var(--tc-color-background, #eff2f8);
+}
+
+
+.datefield__popper {
+    margin-top: 0px;
+}
+
+.datefield .react-datepicker__today-button {
+    background: var(--blue-standard);
+    color: white;
+    font-weight: 600;
+    border-top: 1px solid var(--border-color);
+    padding: 6px;
+
+    cursor: pointer;
+}
+
+.datefield .react-datepicker__today-button:hover {
+    background: var(--blue-standard-dark, #1a2961);
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .datefield {
+        min-width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .datefield__input,
+    .datefield .react-datepicker__day {
+        transition: none;
+    }
+}

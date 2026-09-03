@@ -1,0 +1,122 @@
+/* Container principal */
+.cycletimeitem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  /* border: 1px solid #e0e0e0; */
+  border-radius: 8px;
+  /* background-color: #f9f9f9; */
+  max-width: 200px;
+  font-family: var(--font-family);
+}
+
+.cycletimeitem-tc {
+  position: relative;
+  font-weight: bold;
+  color: #ffffff; /* Branco moderno */
+  font-size: 15px;
+  margin: 0;
+  z-index: 1;
+  margin-bottom: -12px;
+  margin-left: -20px;
+  text-transform: uppercase; /* Deixa o texto em maiúsculas */
+  letter-spacing: 1px; /* Aumenta o espaçamento entre as letras */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidade */
+  transition: color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+}
+
+.cycletimeitem-tc:hover {
+  color: #e6e5e5; /* Cor moderna (azul claro) ao passar o mouse */
+  transform: translateY(-2px); /* Levanta o texto suavemente */
+}
+.cycletimeitem-tc::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -18px;
+  right: -18px;
+  bottom: -25px;
+
+  z-index: -1;
+  border-radius: 25px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3),
+    -4px -4px 10px rgba(255, 255, 255, 0.3); /* Sombra 3D */
+  transform: translateY(
+    2px
+  ); /* Dá um leve deslocamento para parecer que está flutuando */
+}
+
+.cycletimeitem-tc::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -18px;
+  right: -18px;
+  bottom: -25px;
+  background-color: #64656d; /* Cor padrão (quando o TC for menor ou igual ao target) */
+  z-index: -1;
+  border-radius: 25px;
+  transition: background-color 0.3s ease; /* Transição suave */
+}
+
+.cycletimeitem-tc.red::before {
+  background-color: #d13b3b; /* Cor quando TC é maior que o target */
+}
+
+.cycletimeitem-tc.blue::before {
+  background-color: #48529c; /* Cor quando TC é menor ou igual ao target */
+}
+
+/* Imagem do modelo */
+.cycletimeitem-img {
+  width: 100%;
+  height: 60px;
+  /* height: auto; */
+  border-radius: 4px;
+  z-index: 2;
+  /* min-width: 10px; */
+}
+
+.cycletimeitem-img:hover {
+  transform: translateY(-2px); /* Levanta o texto levemente */
+}
+
+.cycletimeitem-road {
+  border: none;
+  height: 15px; /* altura do traço */
+  background: linear-gradient(
+    to bottom,
+    #f9f9f9,
+    #b6b2b2
+  ); /* branco -> cinza */
+  box-shadow: 0 2px 2px -2px gray;
+  border-bottom: 2px solid #817e7e; /* cor mais escura embaixo */
+  margin-top: -25px;
+  width: 130%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Nome do modelo */
+.cycletimeitem-model {
+  font-size: 14px;
+  color: #555d66; /* Cor mais suave e moderna */
+  text-transform: uppercase; /* Mantém o uppercase */
+  letter-spacing: 1px; /* Leve espaçamento entre letras */
+  font-weight: 500; /* Peso de fonte mais leve */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: color 0.3s ease, transform 0.2s ease; /* Efeito suave de transição */
+}
+
+.cycletimeitem-model:hover {
+  color: #243782; /* Cor ao passar o mouse */
+  transform: translateY(-2px); /* Levanta o texto levemente */
+}
+/* Horário formatado */
+.cycletimeitem-time {
+  font-size: 13px;
+  color: #777;
+  margin-top: -6px;
+}

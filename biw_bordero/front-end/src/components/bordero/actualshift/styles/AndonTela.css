@@ -1,0 +1,209 @@
+/* ===== BASE ===== */
+:root {
+ 
+  --info: #0284c7;
+}
+
+.andon-container {
+  background: var(--bg-standard);
+  color: var(--gray-700);
+  padding: 24px;
+  border-radius: 14px;
+  font-family: "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
+
+  border-radius: 14px;
+  border: 1px solid var(--gray-300);
+  height: 100%;
+}
+
+/* ===== HEADER LINHA ===== */
+.andon-line-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.andon-line-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--gray-500);
+}
+
+.andon-line-value {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--blue-standard);
+}
+
+/* ===== MÉTRICAS ===== */
+.andon-metrics {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.metric-card {
+  background: var(--white);
+  padding: 16px 18px;
+  border-radius: 12px;
+  border-left: 5px solid;
+  box-shadow: 0 6px 14px rgba(36, 55, 130, 0.08);
+  display: grid;
+  gap: 5px;
+}
+
+.metric-title {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+.metric-value {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--gray-700);
+}
+
+/* ===== BORDAS POR STATUS ===== */
+.border-blue {
+  border-color: var(--blue-standard);
+}
+.border-purple {
+  border-color: #6d28d9;
+}
+.border-green {
+  border-color: var(--color-success);
+}
+.border-red {
+  border-color: var(--color-error);
+}
+.border-cyan {
+  border-color: var(--info);
+}
+
+/* ===== STATUS CARD ===== */
+.andon-status-card {
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(36, 55, 130, 0.1);
+}
+
+/* ===== STATUS HEADER ===== */
+.andon-status-header {
+  padding: 18px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pulse-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    background: var(--status-color);
+  }
+  50% {
+    background: white;
+  }
+}
+.status-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gray-700);
+}
+
+.status-times {
+  display: flex;
+  gap: 28px;
+}
+
+.status-times small {
+  display: block;
+  font-size: 11px;
+  color: var(--gray-500);
+}
+
+.status-times strong {
+  font-family: monospace;
+  font-size: 16px;
+  color: var(--gray-700);
+}
+
+/* ===== STATUS BODY ===== */
+.andon-status-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding: 26px;
+}
+
+.status-info label,
+.status-description label {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+.status-info span {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--gray-700);
+}
+
+.highlight {
+  color: var(--warning);
+}
+
+.status-description p {
+  background: var(--gray-100);
+  padding: 16px 18px;
+  border-radius: 10px;
+  line-height: 1.6;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+}
+
+/* ===== PROGRESSO ===== */
+.andon-progress {
+  margin-top: 26px;
+  background: var(--white);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(36, 55, 130, 0.08);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--gray-700);
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  background: var(--gray-200);
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--blue-standard), #3b82f6);
+  height: 100%;
+  transition: width 0.4s ease;
+}

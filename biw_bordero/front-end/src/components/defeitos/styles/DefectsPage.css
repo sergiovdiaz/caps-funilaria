@@ -1,0 +1,368 @@
+/* ============================================
+   DefectsPage — layout que cabe 100% na viewport
+   ============================================ */
+
+.defects-page__container {
+  font-family: var(--font-family);
+  background-color: var(--bg-standard);
+  width: 100%;
+  height: calc(100dvh - var(--header-height));
+  max-height: calc(100dvh - var(--header-height));
+  overflow: hidden;
+  /* nunca gera scroll na página */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+
+  padding: 0, var(--spacing-md);
+}
+
+.defects-page__status {
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+}
+
+.defects-page__quadrant-info {
+  font-weight: var(--font-weight-bold);
+  color: var(--blue-standard);
+}
+
+/* --- FilterBar --- */
+
+.filter-bar__container {
+  flex-shrink: 0;
+  /* nunca perde espaço para o grid */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+.filter-bar__select:focus,
+.filter-bar__date-input:focus {
+  outline: none;
+  border: 2px solid var(--blue-standard);
+}
+
+.filter-bar__group {
+  background-color: var(--bg-white);
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: var(--radius-md);
+  min-width: 100px;
+  gap: var(--spacing-xs);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-bar__label {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xxs);
+  color: var(--text-primary);
+  font-size: var(--font-sm);
+}
+
+.filter-bar__date-input,
+.filter-bar__select {
+  padding: var(--spacing-xs);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-sm);
+  /* height: 44px; */
+  min-width: 80px;
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background-color: var(--bg-input);
+}
+
+/* --- Modelo (botões) --- */
+
+.filter-bar__group--modelos {
+  align-items: flex-start;
+}
+
+.filter-bar__group--quadrant {
+  align-items: center;
+}
+
+.filter-bar__model-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xxs);
+}
+
+.filter-bar__model-button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-bold);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-muted);
+  cursor: pointer;
+  color: var(--blue-standard);
+  transition: var(--transition);
+}
+
+.filter-bar__model-button:hover {
+  border-color: var(--blue-standard);
+}
+
+.filter-bar__model-button--active {
+  background-color: var(--blue-standard);
+  color: var(--text-white);
+  border-color: var(--blue-standard);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Turno (botões) --- */
+
+.filter-bar__shift-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xxs);
+  /* justify-content: flex-start; */
+}
+
+.filter-bar__shift-button {
+  padding: var(--spacing-sm) 0;
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-white);
+  cursor: pointer;
+  color: var(--blue-standard);
+  transition: var(--transition);
+  min-width: 70px;
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+.filter-bar__shift-button--active {
+  background-color: var(--blue-standard);
+  color: var(--text-white);
+  border-color: var(--blue-standard);
+  box-shadow: var(--shadow-md);
+}
+
+.filter-bar__shift-button:hover {
+  border-color: var(--blue-standard);
+}
+
+/* --- Quadrante selecionado --- */
+
+.filter-bar__display-box {
+  width: 230px;
+  /* height: 44px; */
+  /* line-height: 42px; */
+  text-align: center;
+  font-size: var(--font-xs);
+  font-weight: var(--font-weight-bold);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-muted);
+  color: var(--text-muted);
+  transition: var(--transition);
+  padding: var(--spacing-sm) var(--spacing-sm);
+}
+
+.filter-bar__display-box--active {
+  border-style: solid;
+  border-color: var(--blue-standard);
+  background-color: var(--blue-muted);
+  color: var(--blue-standard);
+}
+
+.filter-bar__defeito-wrapper {
+  /* height: 100%; */
+  display: flex;
+  width: 270px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.filter-bar__defeito-placeholder {
+  visibility: hidden;
+  width: 200px;
+  height: 100%;
+  width: 100%;
+}
+
+/* --- Toast --- */
+
+.defects-toast {
+  position: fixed;
+  top: var(--spacing-3xl);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  font-size: var(--font-base);
+  z-index: 3000;
+  animation: toast-slide-down 0.3s ease-out;
+  color: var(--text-white);
+  font-weight: var(--font-weight-medium);
+  box-shadow: var(--shadow-lg);
+}
+
+.defects-toast--error {
+  background: var(--color-error);
+}
+
+.defects-toast--success {
+  background: var(--color-success);
+}
+
+@keyframes toast-slide-down {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* --- Modal --- */
+
+.defectsmodal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.defectsmodal__box {
+  background-color: var(--bg-card);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  width: 90%;
+  max-width: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  font-family: var(--font-family);
+}
+
+.defectsmodal__title {
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.defectsmodal__info-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  text-align: left;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.defectsmodal__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+}
+
+.defectsmodal__label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  font-size: var(--font-sm);
+  padding: var(--spacing-xxs);
+}
+
+.defectsmodal__text {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-input);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+.defectsmodal__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+}
+
+.save-button {
+  width: 100%;
+  min-height: 40px;
+  font-size: var(--font-base) !important;
+  font-family: var(--font-family);
+}
+
+.defectsmodal__confirm,
+.save-button {
+  background-color: var(--blue-standard);
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) var(--spacing-xs);
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family);
+  font-size: var(--font-sm);
+  transition: var(--transition);
+}
+
+.defectsmodal__confirm{
+  padding: var(--spacing-xs) var(--spacing-lg);
+
+}
+
+.defectsmodal__confirm:hover,
+.save-button:hover {
+  background-color: var(--blue-dark);
+}
+
+.defectsmodal__cancel {
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-xl);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-md);
+  transition: var(--transition);
+}
+
+.defectsmodal__cancel:hover {
+  background-color: var(--bg-muted);
+}
+
+/* --- Responsividade: ainda sem scroll --- */
+@media (max-width: 900px) {
+  .defects-page__container {
+    padding: var(--spacing-md);
+ 
+  }
+
+  .filter-bar__group {
+    min-width: 60px;
+  }
+}

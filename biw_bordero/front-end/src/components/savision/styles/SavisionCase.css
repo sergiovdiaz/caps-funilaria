@@ -1,0 +1,416 @@
+.savisioncase {
+  font-family: "Inter", sans-serif;
+  background: transparent;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  /* color: #fff; */
+  position: relative;
+}
+
+/* Add semi-transparent overlay for better readability */
+.savisioncase::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 22, 58, 0.2);
+  z-index: 0;
+}
+
+/* Content container */
+.savisioncase > * {
+  position: relative;
+  z-index: 1;
+  /* max-width: 1000px; */
+  width: 100%;
+}
+
+/* Professional Header styles for dark blue background */
+/* Professional Header styles for dark blue background */
+.savisioncase__header {
+  background: rgba(255, 255, 255, 0.1); /* Transparência mais suave */
+  /* backdrop-filter: blur(8px); Efeito de vidro fosco */
+  padding: 1rem;
+  border-radius: 12px;
+  margin: 1rem 0;
+  /* border: 1px solid rgba(255, 255, 255, 0.1); Borda sutil */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05); /* Sombra dupla */
+  /* cursor: pointer; */
+  transition: all 0.3s ease;
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.savisioncase__header:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.savisioncase__title {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.8rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.savisioncase__total {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0.3rem 0;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  font-family: "Segoe UI", "Roboto", "Helvetica", sans-serif;
+  text-align: center;
+  gap: 6px;
+}
+
+.savisioncase__total span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffffff; /* Azul claro para contraste */
+  margin-left: 4px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress bar */
+.savisioncase__progress {
+  display: flex;
+  height: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto 0 auto; /* centraliza horizontalmente e mantém margem superior */
+  width: 50%; /* ajuste a largura como desejar */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.savisioncase__progress-ok {
+  background-color: #4caf50e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.savisioncase__progress-ko {
+  background-color: rgba(244, 67, 54, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.savisioncase__progress-text {
+  padding: 0 15px;
+  white-space: nowrap;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Photos section */
+.savisioncase__photos {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  /* width: 1000px; */
+  max-width: 1000px;
+
+  margin: 0 auto 2rem;
+}
+
+.savisioncase__subtitle {
+  margin: 0.7rem 0 0.3rem 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.1); /* Transparência mais suave */
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05); /* Sombra dupla */
+  user-select: none;
+  transition: all 0.3s ease;
+  /* cursor: pointer; */
+}
+
+.savisioncase__body {
+  display: flex;
+  gap: 20px; /* espaço entre content e content-table */
+  align-items: flex-start; /* alinha no topo */
+}
+
+.savisioncase__content {
+  flex: 1; /* ocupa espaço proporcional */
+}
+
+.savisioncase__table-wrapper {
+  max-height: 532px; /* Ajuste conforme a altura de 12 linhas */
+  overflow-y: auto;
+}
+.savisioncase__content-table {
+  flex: 1; /* divide meio a meio (ou ajusta como quiser) */
+}
+
+.savisioncase__subtitle:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+}
+.savisioncase__photo-container {
+  flex: 1;
+  display: flex;
+  max-height: 700px;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1); /* Transparência mais suave */
+  /* backdrop-filter: blur(8px); fEfeito de vidro fosco */
+  border-radius: 8px;
+  overflow: hidden;
+  /* cursor: pointer; */
+  transition: all 0.3s ease;
+  /* border: 1px solid rgba(255, 255, 255, 0.1); Borda sutil */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05); /* Sombra dupla */
+}
+
+.savisioncase__photo-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.savisioncase__photo-title {
+  background-color: #00163a00;
+  color: white;
+  padding: 0.6rem 1rem;
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.savisioncase__photo {
+  width: 90%;
+  max-height: 600px;
+  object-fit: contain;
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+/* Placeholder styles (mantido para compatibilidade) */
+.savisioncase__photo-placeholder {
+  flex: 1;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px dashed rgba(0, 22, 58, 0.3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00163a;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.savisioncase__photo-placeholder:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Table styles */
+.savisioncase__table-container {
+  background: rgba(255, 255, 255, 0.1); /* Transparência mais suave */
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+  flex: 1;
+  position: relative;
+}
+
+.savisioncase__export-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 7px;
+  position: absolute; /* Posicionamento absoluto */
+  top: 8px; /* Distância do topo */
+  right: 40px; /* Distância da direita */
+}
+
+.savisioncase__export-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.savisioncase__export-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.savisioncase__export-btn:disabled:hover {
+  background-color: transparent;
+}
+
+.savisioncase__export-icon {
+  width: 20px;
+  height: 20px;
+
+  transition: transform 0.2s ease;
+}
+
+.savisioncase__export-icon {
+  width: 22px;
+  height: 22px;
+
+  transition: transform 0.2s ease;
+}
+
+.savisioncase__export-btn:hover .savisioncase__export-icon {
+  transform: scale(1.05);
+}
+
+.savisioncase__export-btn:disabled .savisioncase__export-icon {
+  filter: brightness(0) invert(0.7); /* Ajusta a cor quando desabilitado */
+}
+
+.savisioncase__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1.2rem;
+}
+
+.savisioncase__table th {
+  /* background-color: #00163ad5; */
+  background-color: #00163aaf;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  position: sticky;
+  border-radius: 5px;
+  top: 0;
+}
+
+.savisioncase__table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(248, 245, 245, 0.2);
+  color: #fffefe;
+  cursor: pointer;
+  user-select: none;
+}
+
+.savisioncase__table tr:last-child td {
+  border-bottom: none;
+}
+
+.savisioncase__table tr:hover {
+  background-color: rgba(0, 22, 58, 0.5);
+}
+
+/* Estilo base para os inputs de filtro */
+.savisioncase__table thead input[type="text"] {
+  width: 60%;
+  padding: 6px 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: inherit;
+  color: #333;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+/* Efeito ao focar no input */
+.savisioncase__table thead input[type="text"]:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 6px rgba(74, 144, 226, 0.6);
+  outline: none;
+  background-color: #fff;
+}
+/* Placeholder com cor mais clara */
+.savisioncase__table thead input[type="text"]::placeholder {
+  color: #999;
+  font-style: italic;
+}
+/* Cursor pointer para inputs (opcional) */
+.savisioncase__table thead input[type="text"] {
+  cursor: text;
+}
+
+.selected-row {
+  background-color: rgba(0, 22, 58, 0.5); /* destaque da linha selecionada */
+}
+
+.savisioncase__status--ok {
+  color: #4caf50 !important;
+  font-weight: 600;
+}
+
+.savisioncase__status--ko {
+  color: #f44336 !important;
+  font-weight: 600;
+}
+
+.savisioncase__content-container {
+  display: flex;
+  gap: 20px; /* espaço entre tabela e imagem */
+}
+
+.savisioncase__selected-image {
+  margin-top: -20px;
+  /* cursor: pointer; */
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .savisioncase__photos {
+    flex-direction: column;
+  }
+
+  .savisioncase__photo-placeholder {
+    height: 150px;
+  }
+
+  .savisioncase__progress {
+    height: 40px;
+  }
+}

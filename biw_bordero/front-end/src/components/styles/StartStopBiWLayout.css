@@ -1,0 +1,355 @@
+.biwlayout {
+  display: grid;
+  grid-template-columns: repeat(
+    24,
+    50px
+  ); /* ajuste o número e tamanho conforme necessário */
+  grid-template-rows: repeat(19, 40px);
+  gap: 8px;
+  position: relative;
+  padding: 3px 60px;
+  height: 100%;
+}
+
+.biwlayout__block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  background-color: #4a5c72;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  padding: 2px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+  cursor: pointer;
+}
+
+.biwlayout__block:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1);
+  z-index: 999;
+  position: relative;
+}
+
+/* Exemplo de posicionamento manual (use grid-area ou grid-column/grid-row) */
+.biwlayout__lfb {
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 13;
+}
+
+.biwlayout__lfa {
+  grid-column: 3 / span 2;
+  grid-row: 2 / span 13;
+}
+
+.biwlayout__tpf {
+  grid-column: 5 / span 2;
+  grid-row: 3 / span 6;
+}
+
+.biwlayout__logistic {
+  grid-column: 5 / span 2;
+  grid-row: 9 / span 6;
+}
+
+.biwlayout__lda {
+  grid-column: 7 / span 2;
+  grid-row: 2 / span 13;
+}
+
+.biwlayout__ppcs {
+  grid-column: 1 / span 2;
+  grid-row: 15 / span 2;
+}
+
+.biwlayout__ppcd {
+  grid-column: 3 / span 2;
+  grid-row: 15 / span 2;
+}
+
+.biwlayout__pps {
+  grid-column: 1 / span 2;
+  grid-row: 17 / span 1;
+}
+
+.biwlayout__ppd {
+  grid-column: 3 / span 2;
+  grid-row: 17 / span 1;
+}
+
+.biwlayout__plcs {
+  grid-column: 5 / span 2;
+  grid-row: 15 / span 2;
+}
+
+.biwlayout__plcd {
+  grid-column: 7 / span 2;
+  grid-row: 15 / span 2;
+}
+
+.biwlayout__pls {
+  grid-column: 5 / span 2;
+  grid-row: 17 / span 1;
+}
+
+.biwlayout__pld {
+  grid-column: 7 / span 2;
+  grid-row: 17 / span 1;
+}
+
+.biwlayout__spo {
+  grid-column: 4 / span 5;
+  grid-row: 18 / span 1;
+}
+
+.biwlayout__mac {
+  grid-column: 9 / span 1;
+  grid-row: 2 / span 7;
+}
+
+.biwlayout__deliberaalta {
+  grid-column: 9 / span 1;
+  grid-row: 9 / span 4;
+}
+
+.biwlayout__cof1 {
+  grid-column: 9 / span 3;
+  grid-row: 13 / span 1;
+}
+
+.biwlayout__cof {
+  grid-column: 10 / span 2;
+  grid-row: 13 / span 2;
+}
+
+.biwlayout__prs {
+  grid-column: 10 / span 2;
+  grid-row: 15 / span 1;
+}
+
+.biwlayout__prd {
+  grid-column: 10 / span 2;
+  grid-row: 16 / span 1;
+}
+.biwlayout__ppp {
+  grid-column: 10 / span 2;
+  grid-row: 17 / span 1;
+}
+
+.biwlayout__ppg {
+  grid-column: 10 / span 2;
+  grid-row: 18 / span 1;
+}
+
+.biwlayout__sce {
+  grid-column: 10 / span 2;
+  grid-row: 2 / span 11;
+}
+
+.biwlayout__ofd {
+  grid-column: 12 / span 2;
+  grid-row: 2 / span 3;
+}
+
+.biwlayout__fda {
+  grid-column: 12 / span 2;
+  grid-row: 5 / span 12;
+}
+
+.biwlayout__fpd {
+  grid-column: 12 / span 2;
+  grid-row: 17 / span 3;
+}
+
+.biwlayout__ofd05 {
+  grid-column: 14 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.biwlayout__ofs05 {
+  grid-column: 15 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.biwlayout__pap {
+  grid-column: 14 / span 2;
+  grid-row: 3 / span 2;
+}
+
+.biwlayout__scc {
+  grid-column: 14 / span 2;
+  grid-row: 5 / span 12;
+}
+
+.biwlayout__pbp {
+  grid-column: 14 / span 2;
+  grid-row: 17 / span 1;
+}
+
+.biwlayout__spg {
+  grid-column: 14 / span 2;
+  grid-row: 18 / span 1;
+}
+
+.biwlayout__ofs {
+  grid-column: 16 / span 2;
+  grid-row: 2 / span 3;
+}
+
+.biwlayout__fsa {
+  grid-column: 16 / span 2;
+  grid-row: 5 / span 12;
+}
+
+.biwlayout__fps {
+  grid-column: 16 / span 2;
+  grid-row: 17 / span 3;
+}
+
+.biwlayout__tea {
+  grid-column: 18 / span 2;
+  grid-row: 2 / span 3;
+}
+
+.biwlayout__aue {
+  grid-column: 18 / span 2;
+  grid-row: 5 / span 12;
+}
+
+.biwlayout__ppa {
+  grid-column: 20 / span 2;
+  grid-row: 2 / span 3;
+}
+
+.biwlayout__auc {
+  grid-column: 20 / span 2;
+  grid-row: 5 / span 12;
+}
+
+.biwlayout__ppf1 {
+  grid-column: 22 / span 2;
+  grid-row: 1 / span 1;
+}
+
+.biwlayout__ppf {
+  grid-column: 22 / span 2;
+  grid-row: 2 / span 2;
+}
+
+.biwlayout__ppaload {
+  grid-column: 22 / span 2;
+  grid-row: 4 / span 1;
+}
+
+.biwlayout__spj {
+  grid-column: 22 / span 2;
+  grid-row: 5 / span 1;
+}
+
+.biwlayout__pan {
+  grid-column: 22 / span 2;
+  grid-row: 7 / span 4;
+}
+
+.biwlayout__tup {
+  grid-column: 22 / span 2;
+  grid-row: 10 / span 3;
+}
+
+.status-ok {
+  border: 1px solid #4caf50;
+  background-color: rgba(133, 194, 135, 0.849);
+}
+
+.status-ar_em_interrupcao {
+  border: 1px solid #1f71db;
+  background-color: rgba(93, 159, 189, 0.849);
+}
+
+.status-bypass {
+  border: 1px solid #f44336;
+  background-color: rgba(219, 136, 130, 0.849);
+}
+
+.status-manutencao {
+  border: 1px solid #ff9800;
+  background-color: rgba(236, 190, 122, 0.849);
+}
+
+.status-semstartstop {
+  border: 1px solid #e0e0e0;
+  background-color: rgb(172, 170, 170);
+}
+
+.status-semcomunicacao {
+  border: 1px solid #727272;
+  background-color: rgba(90, 90, 90, 0.877);
+}
+
+.status-desconhecido {
+  border: 1px solid #d8aa12;
+  background-color: rgb(235, 185, 92);
+}
+
+.status-falhavazao {
+  border: 1px solid #bf8ef7;
+  background-color: #af97f1;
+}
+
+.modal-overlay-ca {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content-ca {
+  background-color: #eff2f8;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 300px;
+  max-width: 1700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #216992; /* cinza-azulado escuro */
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.block-tooltip {
+  position: absolute;
+  bottom: 100%; /* acima do bloco */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.biwlayout__block:hover .block-tooltip {
+  opacity: 1;
+}

@@ -1,0 +1,17 @@
+{
+  "machineId":"opengate",
+  "machineLabel":"OpenGate",
+  "imageWidth": 475,
+  "imageHeight": 1015,
+  "areas": [
+    {
+      "id": "avanço_bilancela",
+      "label": "Avanço Bilancela",
+      "x": 330,
+      "y": 130,
+      "width": 100,
+      "height": 80
+    }
+  
+  ]
+}

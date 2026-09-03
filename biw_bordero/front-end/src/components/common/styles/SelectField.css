@@ -1,0 +1,48 @@
+/* SelectField.css */
+.selectfield {
+    display: flex;
+    flex-direction: column;
+    max-width: 180px;
+    flex: 1;
+}
+
+.selectfield__label {
+    font-size: var(--font-xxs, 0.625rem);
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--blue-standard, #243782);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+    margin-left: 0.2rem;
+}
+
+.selectfield__required {
+    color: var(--error-color, #dc2626);
+    margin-left: 0.25rem;
+}
+
+.selectfield__container {
+    width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .selectfield {
+        min-width: 100%;
+    }
+}
+
+/* Estilo para disabled */
+.selectfield__container .selectfield__control--is-disabled {
+    background-color: var(--bg-disabled, #f1f5f9);
+    cursor: not-allowed;
+}
+
+/* Animações */
+.selectfield__container .selectfield__control {
+    transition: border-color var(--transition, 0.2s), box-shadow var(--transition, 0.2s);
+}
+
+.selectfield__container .selectfield__option {
+    transition: background-color var(--transition, 0.2s), color var(--transition, 0.2s);
+}

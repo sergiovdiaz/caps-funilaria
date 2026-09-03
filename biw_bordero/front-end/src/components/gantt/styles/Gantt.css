@@ -1,0 +1,174 @@
+/* =========================
+   CONTAINER
+========================= */
+.gantt-container {
+    overflow: auto;
+    border: 1px solid #e1e5eb;
+    border-radius: 8px;
+    background: #ffffff;
+    font-family: var(--font-family);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================
+   HEADER
+========================= */
+.gantt-header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: #f9fafc;
+    z-index: 10;
+    border-bottom: 1px solid #e1e5eb;
+}
+
+.gantt-header-left {
+    width: 220px;
+    min-width: 220px;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #344054;
+    border-right: 1px solid #e1e5eb;
+}
+
+/* Timeline header area */
+.gantt-header-timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Date row */
+.gantt-header-dates {
+    display: flex;
+    background: #f2f4f7;
+    border-bottom: 1px solid #e1e5eb;
+}
+
+.gantt-date-cell {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #475467;
+    padding: 6px 0;
+    border-right: 1px solid #eaecef;
+}
+
+/* Hour row */
+.gantt-header-hours {
+    display: flex;
+    background: #ffffff;
+}
+
+.gantt-hour-cell {
+    text-align: center;
+    font-size: 11px;
+    color: #667085;
+    padding: 4px 0;
+    border-right: 1px solid #f0f2f5;
+}
+
+/* =========================
+   ROWS
+========================= */
+.gantt-row {
+    display: flex;
+    border-bottom: 1px solid #f2f4f7;
+    transition: background 0.2s ease;
+}
+
+.gantt-row:hover {
+    background: #f9fbff;
+}
+
+.gantt-row-label {
+    width: 220px;
+    min-width: 220px;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #344054;
+    border-right: 1px solid #e1e5eb;
+    background: #fcfcfd;
+}
+
+/* Timeline body */
+.gantt-row-timeline {
+    position: relative;
+    height: 64px;
+}
+
+/* =========================
+   ITEMS
+========================= */
+.gantt-item {
+    position: absolute;
+    top: 12px;
+    height: 40px;
+    border-radius: 8px;
+    padding: 6px 8px;
+    overflow: hidden;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.gantt-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Disponibilidade (background layer) */
+.gantt-item.disponibilidade {
+    background: linear-gradient(90deg,
+            rgba(59, 130, 246, 0.12),
+            rgba(59, 130, 246, 0.18));
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    color: #1d4ed8;
+    z-index: 1;
+}
+
+/* Atividade (foreground layer) */
+.gantt-item.atividade {
+    background: linear-gradient(90deg,
+            #2563eb,
+            #1d4ed8);
+    color: #ffffff;
+    z-index: 2;
+}
+
+/* Text styles */
+.gantt-item-title {
+    font-weight: 600;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gantt-item-subtitle {
+    font-size: 10px;
+    opacity: 0.85;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =========================
+   SCROLLBAR (enterprise feel)
+========================= */
+.gantt-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.gantt-container::-webkit-scrollbar-thumb {
+    background: #cfd4dc;
+    border-radius: 4px;
+}
+
+.gantt-container::-webkit-scrollbar-thumb:hover {
+    background: #b8bec8;
+}

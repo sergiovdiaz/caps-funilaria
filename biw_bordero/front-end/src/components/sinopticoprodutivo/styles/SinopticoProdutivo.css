@@ -1,0 +1,71 @@
+/* ============================= */
+/*  SINÓPTICO PRODUTIVO - GERAL  */
+/* ============================= */
+
+.sinoptico-prod {
+    background-color: #eff2f8;
+    padding: 0 1rem;
+    font-family: var(--font-family);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - var(--header-height));
+
+}
+
+/* ============================= */
+/*  MODAL OVERLAY                */
+/* ============================= */
+
+.modal-overlay-ca {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+/* ============================= */
+/*  MODAL CONTENT                */
+/* ============================= */
+
+.modal-content-ca {
+    background: #f5f5f5;
+    min-width: 420px;
+    min-height: 240px;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+
+    animation: modalFadeIn 0.25s ease;
+}
+
+/* ============================= */
+/*  ANIMAÇÃO                     */
+/* ============================= */
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ============================= */
+/*  RESPONSIVO                   */
+/* ============================= */
+
+@media (max-width: 900px) {
+    .modal-content-ca {
+        width: 90%;
+        min-width: unset;
+    }
+}

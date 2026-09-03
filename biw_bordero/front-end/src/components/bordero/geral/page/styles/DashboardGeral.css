@@ -1,0 +1,111 @@
+.dashboardgeral {
+    display: flex;
+    flex-direction: column;
+    /* gap: var(--spacing-sm); */
+    padding: var(--spacing-xl);
+    background: var(--bg-standard);
+    min-height: 100%;
+    font-family: var(--font-family);
+    width: 100%;
+}
+/* =============================
+   BUSCA DE LINHA
+============================= */
+
+.search-box {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.search-box input {
+    flex: 1;
+    max-width: 280px;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    font-size: var(--font-sm);
+    font-family: var(--font-family);
+    color: var(--text-primary);
+    background: var(--bg-card);
+    transition: var(--transition);
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--blue-standard);
+    box-shadow: 0 0 0 3px var(--blue-light-bg);
+}
+
+.search-box button {
+    padding: var(--spacing-xs) var(--spacing-lg);
+    background: var(--blue-standard);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-sm);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-box button:hover {
+    opacity: 0.9;
+}
+
+/* =============================
+   CARD2 (tabela de eventos)
+   — sem hover de box-shadow pois
+     o componente <Table> já tem estilo próprio
+============================= */
+
+.card2 {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    min-height: 450px;
+    /* deixa o Table respeitar o border-radius */
+}
+
+.chart-wrapper {
+    position: relative;
+}
+
+/* overlay suave */
+.chart-wrapper.loading {
+    opacity: 0.6;
+    filter: blur(1px);
+    transition: all 0.2s ease;
+}
+
+
+
+/* =============================
+   HEADER DE FILTROS E BUSCA
+============================= */
+
+
+.dg__filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: var(--spacing-sm);
+    margin-top: -18px;
+    font-size: var(--font-xs);
+}
+
+.dg__date-fields {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.dg__actions {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: var(--spacing-sm);
+    width: 100%;
+    margin-top: var(--spacing-xs);
+}

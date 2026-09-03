@@ -1,0 +1,183 @@
+.startstoptrend {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #eff2f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 80vh;
+  width: 100%;
+  font-family: "Montserrat", sans-serif; /* Fonte moderna */
+}
+
+.startstoptrend__filters {
+  flex: 0 0 280px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  order: 2; /* Move os filtros para a direita */
+}
+
+.startstoptrend__filters-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #243782;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.startstoptrend__filter-group {
+  margin-bottom: 18px;
+}
+
+.startstoptrend__filter-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.startstoptrend__filter-input,
+.startstoptrend__filter-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.startstoptrend__filter-input:focus,
+.startstoptrend__filter-select:focus {
+  outline: none;
+  border-color: #3a7bd5;
+  box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.1);
+}
+
+.startstoptrend__status-info {
+  margin-top: 25px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #555;
+  border-left: 3px solid #3a7bd5;
+}
+
+.startstoptrend__charts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  order: 1; /* Garante que os gráficos ficam à esquerda */
+}
+
+.startstoptrend__chart-container {
+  background-color: white;
+  padding: 20px;
+
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.startstoptrend__chart-title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #243782;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.startstoptrend__go-button {
+  /* Estilo base */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  margin-top: 16px;
+  width: 100%;
+
+  /* Tipografia */
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  /* Cores */
+  color: #ffffff;
+  background-color: #4a6cf7;
+  border: none;
+  border-radius: 6px;
+
+  /* Efeitos e transições */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(74, 108, 247, 0.2);
+
+  /* Posicionamento */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Estado hover */
+.startstoptrend__go-button:hover {
+  background-color: #3a5ce4;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(74, 108, 247, 0.3);
+}
+
+/* Estado active */
+.startstoptrend__go-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 3px rgba(74, 108, 247, 0.2);
+}
+
+/* Estado focus */
+.startstoptrend__go-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.4);
+}
+
+/* Estado disabled */
+.startstoptrend__go-button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Efeito de loading */
+.startstoptrend__go-button.loading {
+  color: transparent;
+}
+
+.startstoptrend__go-button.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}

@@ -1,0 +1,306 @@
+.cycletimegraph {
+  /* background-color: #fefeff; Cor de fundo */
+  /* background-color: #f0f3fc; */
+  background-color: #f9f9f9;
+  /* background-color: #f4f6fa; */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 12px; /* Bordas arredondadas */
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  /* Efeito de borda 3D */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra mais escura */
+}
+
+.cycletimegraph__content {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  /* align-items: flex-start; */
+  align-items: center; /* Centraliza verticalmente os itens */
+  /* flex-wrap: wrap; */
+}
+
+.cycletimegraph__header {
+
+  display: flex; /* Flexbox para alinhamento */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-between;   font-size: 13px; /* Tamanho pequeno e discreto */
+  font-weight: 300; /* Fonte mais fina */
+  color: #48529c; /* Cor de texto principal */
+  letter-spacing: 0.5px; /* Leve espaçamento entre as letras */
+  text-transform: uppercase; /* Letra maiúscula para um visual mais forte */
+  padding: 10px 15px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  transition: background-color 0.3s ease; /* Transição suave para mudanças no fundo */
+
+  /* Efeito de contorno nas letras */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0 0 25px rgba(0, 0, 0, 0.1); /* Sombra leve para criar o efeito de contorno */
+}
+
+.cycletimegraph__header h2 {
+  flex: 1;
+  text-align: center;
+  /* título centralizado */
+  margin: 0;
+}
+
+
+
+.cycletime-container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  /* justify-content: right; */
+  /* padding-left: 80px; */
+}
+
+.cycletime-item-wrapper {
+  min-width: 100px;
+  transition: transform 0.6s ease;
+}
+
+.cycletime-container.animating .cycletime-item-wrapper {
+  animation: slide-right 0.6s ease forwards;
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-120px); /* entra pela esquerda */
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.cycletime-item-loading {
+  font-size: 15px; /* Ajuste o tamanho da fonte */
+  font-weight: bold; /* Deixe o texto em negrito */
+  color: #243782;
+  text-align: center;
+  animation: loadingAnimation 2s infinite; /* Animação para dar um efeito de "carregando" */
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.cycletimegraph__analytics {
+  margin-top: -38px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  /* background-color: #a51b1b; */
+  border-radius: 12px;
+  font-size: 12px;
+  max-width: 500px;
+  z-index: 2;
+}
+
+.cycletimegraph__analytics h3 {
+
+  font-size: 12px;
+  padding: 5px 10px 10px;
+  background-color: #243782;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.cycletimegraph__analytics h3 {
+
+
+  padding: 5px 10px;
+  background-color: #243782;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 0 0.5px #243782;
+  border: none;
+}
+
+.cycletimegraph__analytics h3:hover .first-line {
+  text-shadow: 0 0 5px rgba(168, 167, 167, 0.7);
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.cycletimegraph__analytics h3:hover .second-line {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.cycletimegraph__analytics h3 .first-line {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  margin-bottom: -3px;
+}
+
+.cycletimegraph__analytics h3 .second-line {
+  font-size: 11px;
+  font-weight: 400;
+  opacity: 0.9;
+  letter-spacing: 0.6px;
+  padding-bottom: 5px;
+}
+
+.cycletimegraph__analytics table {
+  /* width: 100%; */
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  margin-top: -8px;
+  border-radius: 10px;
+  /* border: 1px solid #243782; */
+  box-shadow: 0 0 0 0.5px #243782;
+  border: none;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2); */
+}
+
+.cycletimegraph__analytics th,
+.cycletimegraph__analytics td {
+  padding: 6px 9px;
+  text-align: center;
+}
+
+.cycletimegraph__analytics th {
+  background-color: #243782;
+  color: white;
+  font-weight: 600;
+  padding: 4px 12px;
+}
+
+.cycletimegraph__analytics td {
+  background-color: #f0f3fc;
+  color: #243782;
+  font-weight: 500;
+  border-bottom: 2px solid #e0e6f6;
+  white-space: nowrap;
+}
+.cycletimegraph__analytics tr:last-child td {
+  border-bottom: none;
+}
+
+/* Linha normal */
+.cycletimegraph__row-normal td {
+  background-color: #f0f3fc;
+  color: #243782;
+  font-weight: 500;
+  border-bottom: 2px solid #e0e6f6;
+}
+
+.cycletimegraph__row-normal:hover td {
+  background-color: #dbe8ff; /* Azul clarinho */
+  transition: 0.2s ease;
+}
+
+/* Linha de alerta (passou do target) */
+.cycletimegraph__row-alert td {
+  background-color: #ffe5e5; /* Vermelho claro */
+  color: #991b1b;
+  font-weight: 500;
+  border-bottom: 2px solid #f5c2c7;
+}
+
+.cycletimegraph__row-alert:hover td {
+  background-color: #ffcccc; /* Vermelho um pouco mais forte */
+  transition: 0.2s ease;
+}
+
+/* PAGINAÇÃO */
+
+.cycletimegraph__pagination {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  /* direita do header */
+
+
+  font-weight: 600;
+  font-size: 13px;
+  color: #243782;
+}
+
+.cycletimegraph__pagination button {
+  background-color: #ffffff;
+  border: 1px solid #243782;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #243782;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cycletimegraph__pagination button:hover:not(:disabled) {
+  background-color: #243782;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(36, 55, 130, 0.3);
+}
+
+.cycletimegraph__pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #8a9ad4;
+}
+
+.cycletimegraph__pagination span {
+  min-width: 40px;
+  text-align: center;
+  font-size: 13px;
+  color: #48529c;
+}
+
+.cycletimegraph__period {
+
+  /* Alinhado com a paginação */
+  font-size: 12px;
+  font-weight: 600;
+  color: #243782;
+
+  /* Adicionando estrutura */
+  background-color: #f0f2f8;
+  /* Um tom bem leve da sua cor principal */
+  padding: 4px 12px;
+  border-radius: 20px;
+  /* Estilo 'pill' para diferenciar de botões */
+  border: 1px solid transparent;
+
+  /* Alinhamento */
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  white-space: nowrap;
+
+  /* Suavidade */
+  transition: background-color 0.2s ease;
+}

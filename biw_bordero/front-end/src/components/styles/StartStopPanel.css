@@ -1,0 +1,376 @@
+.startstoppanel {
+  display: flex;
+  flex-direction: column; /* Agora os itens ficam um abaixo do outro */
+  padding: 3px;
+  font-family: "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
+  /* background-color: #eff2f8; */
+  /* background-color: #fbf9ff; */
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  margin: 5px;
+  border-radius: 10px;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+}
+
+.startstoppanel__title {
+  /* Typography */
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+  font-size: 1.6rem; /* 28px */
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: #1668ac; /* Dark blue-gray for professionalism */
+
+  /* Spacing & Layout */
+  padding: 0.75rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Decorative Elements */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .startstoppanel__title {
+    font-size: 1.5rem; /* 24px */
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Animation for interactive feel */
+.startstoppanel__title:hover {
+  transition: all 0.3s ease;
+  color: #2980b9;
+}
+
+.startstoppanel__content {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  font-family: "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
+  /* background-color: #ffffff; */
+  justify-content: center; /* alinha horizontalmente */
+  flex: 1; /* Expande para preencher o espaço */
+  width: 100%;
+}
+.startstoppanel__graph {
+  width: 100%;
+  max-width: 800px;
+  height: 330px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: #f8f8f8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave e mais ampla */
+  border-radius: 1rem; /* Borda mais arredondada para um visual mais suave */
+}
+
+.startstoppanel__status-info {
+  background-color: #f8f8f8;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  border-left: 6px solid #1e90ff; /* padrão azul */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 320px;
+  height: 330px;
+  transition: border-color 0.3s ease;
+}
+
+.startstoppanel__status-info.bypass {
+  border-left-color: #d32f2f; /* vermelho forte para a borda */
+}
+.startstoppanel__status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem; /* Aumento do espaço entre o ícone e o texto */
+}
+
+.startstoppanel__status-icon {
+  width: 90px; /* Ícone um pouco maior para mais impacto visual */
+  height: 90px;
+  object-fit: contain; /* Garante que o ícone não seja distorcido */
+}
+
+.startstoppanel__status-text {
+  font-size: 1.25rem; /* Aumentando o tamanho para um estilo mais imponente */
+  font-weight: 700; /* Usando um peso de fonte mais forte para dar maior destaque */
+  color: #333; /* Cor escura para boa leitura */
+  letter-spacing: 0.1px; /* Aumentando o espaçamento entre as letras para maior clareza */
+  text-transform: capitalize; /* Deixa o texto mais elegante */
+  margin-top: 0.25rem; /* Um leve espaçamento acima */
+  text-transform: uppercase; /* Deixa o título mais formal e profissional */
+}
+
+.startstoppanel__info {
+  text-align: left; /* Alinha as informações à esquerda para uma leitura mais fluida */
+  width: 100%;
+  border-top: 1px solid #e0e0e0; /* Linha de separação suave em cinza */
+  padding-top: 0.5rem; /* Maior espaço entre o título e as informações */
+  padding-left: 1.25rem; /* Adiciona um pouco de espaço à esquerda das informações */
+}
+
+.startstoppanel__info-title {
+  font-size: 13px; /* Tamanho maior para um título mais destacado */
+  font-weight: 700; /* Usando peso de fonte mais forte para maior impacto */
+  color: #444; /* Cor um pouco mais suave, mas ainda contrastante */
+  letter-spacing: 0.5px; /* Melhorando o espaçamento entre as letras */
+  margin-bottom: 0.5rem;
+  text-align: center; /* Centraliza o texto dentro do bloco */
+
+  text-transform: uppercase; /* Deixa o título mais formal e profissional */
+}
+.startstoppanel__info-item {
+  margin-bottom: 0.3rem; /* Maior espaço entre os itens de info */
+  font-size: 0.9rem;
+  color: #555; /* Cor suave para o texto */
+}
+
+.startstoppanel__info-status {
+  font-weight: 500;
+  margin-top: 2px;
+  background-color: #f0f8ff; /* azul suave */
+  padding: 4px;
+  border-radius: 0.5rem;
+  color: #1e90ff; /* azul */
+  font-size: 0.91rem;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.startstoppanel__info-status.bypass {
+  background-color: #ffe5e5; /* vermelho bem suave, tipo rosa claro */
+  color: #d32f2f; /* vermelho forte para texto */
+}
+
+.stop-octagon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  line-height: 80px;
+  text-transform: uppercase;
+  font-family: "Arial Black", sans-serif;
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+  z-index: 1;
+}
+
+/* Estilo quando for STOP (verde com borda branca/verde) */
+.stop-octagon.stop {
+  background-color: #04b925; /* verde */
+  /* border: 2px solid #0b6b17; exemplo de borda verde escuro */
+  color: white;
+  font-size: 25px;
+}
+
+.stop-octagon.go {
+  background-color: #1e90ff; /* azul */
+  /* border: 2px solid #1565c0; borfda azul escuro */
+  color: white;
+  font-size: 30px;
+  /* outros estilos que já tiver */
+}
+
+.stop-octagon.bypass {
+  background-color: #d32f2f; /* vermelho */
+  /* border: 2px solid #9a2424; borda vermelha mais escura */
+  color: white;
+  font-size: 25px;
+  /* outros estilos que quiser manter iguais */
+}
+
+.bit-table {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.bit-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.bit-table__header {
+  padding: 10px 15px;
+  background-color: #2c3e50;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.bit-table__row {
+  transition: background-color 0.2s ease;
+}
+
+.bit-table__row:hover {
+  background-color: #f9f9f9;
+}
+
+.bit-table__row--output {
+  background-color: #f0f7ff;
+  font-weight: bold;
+}
+
+.bit-table__cell,
+.bit-table__zones-cell,
+.bit-table__output-cell {
+  padding: 6px 13px;
+  border: 1px solid #e0e0e0;
+  vertical-align: middle;
+  background-color: #f8f8f8;
+}
+
+.bit-table__output-cell {
+  border-top: 2px solid #bec2c7;
+  font-size: 15px;
+}
+
+.bit-table__condition,
+.bit-table__zone,
+.bit-table__output {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bit-table__zones-title {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.bit-table__zone {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.bit-table__zone:last-child {
+  border-bottom: none;
+}
+
+.bit-table__label {
+  flex-grow: 1;
+  font-size: 13px;
+  color: #333;
+}
+
+.bit-table__output-label {
+  flex-grow: 1;
+  font-size: 15px;
+  color: #555;
+}
+
+.bit-table__status {
+  font-size: 13px;
+  color: #555;
+  min-width: 35px;
+  text-align: right;
+}
+
+.bit-table__status-output {
+  font-size: 15px;
+  color: #555;
+  min-width: 35px;
+  text-align: right;
+}
+
+.bit-table__status--free {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.bit-table__status--maintenance {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.bit-table__indicator {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.bit-table__indicator--on {
+  background-color: #27ae60;
+}
+
+.bit-table__indicator--off {
+  background-color: #e74c3c;
+}
+
+.bit-table__condition:hover .bit-table__label,
+.bit-table__zone:hover .bit-table__label {
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .bit-table {
+    padding: 8px;
+  }
+
+  .bit-table__header {
+    padding: 10px 8px;
+    font-size: 10px;
+  }
+
+  .bit-table__cell,
+  .bit-table__zones-cell,
+  .bit-table__output-cell {
+    padding: 8px 10px;
+  }
+
+  .bit-table__label,
+  .bit-table__output-label {
+    font-size: 12.5px;
+  }
+}
+
+.startstoppanel__button {
+  text-align: right; /* Alinha o conteúdo à direita */
+}
+
+.botao-navegacao {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2c3e50;
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  /* margin-right: 250px; Empurra o botão para a direita */
+}
+
+.botao-navegacao:hover {
+  background-color: #3e454d;
+}

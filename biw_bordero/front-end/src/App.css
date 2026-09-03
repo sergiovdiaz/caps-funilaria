@@ -1,0 +1,237 @@
+:root {
+  /* ============================================
+     CORES — PRIMÁRIA (AZUL)
+     ============================================ */
+
+  --blue-standard: #243782;
+  --blue-dark: #1a2966;
+  /* --blue-light: rgba(36, 55, 130, 0.1); */
+  --blue-light-bg: rgb(229, 233, 245);
+  --blue-light: #3451b2;
+   
+  --blue-muted: #e5e9f5;
+
+   --white: #ffffff;
+
+  /* ============================================
+     CORES — BACKGROUNDS
+     ============================================ */
+
+  --bg-standard: #eff2f8;
+  /* página / layout */
+  --bg-white: #ffffff;
+  --bg-card: #fafbff;
+  /* cards e painéis */
+  --bg-muted: #f8f9fa;
+  /* áreas secundárias */
+  --bg-input: #f5f6fa;
+  /* inputs */
+   --gray-50: #f9fafb;
+   --gray-100: #f3f4f6;
+   --gray-200: #e5e7eb;
+   --gray-300: #d1d5db;
+   --gray-400: #9ca3af;
+   --gray-500: #6b7280;
+   --gray-600: #4b5563;
+   --gray-700: #374151;
+   --gray-800: #1f2937;
+
+  /* ============================================
+     CORES — TEXTO
+     ============================================ */
+
+  --text-primary: #243782;
+  --text-secondary: #495057;
+  --text-muted: #6c757d;
+  --text-white: #ffffff;
+  --text-dark: #333333;
+
+  /* ============================================
+     CORES — BORDAS
+     ============================================ */
+
+  --border-color: #cbd2da;
+  --border-light: #e4e8ef;
+
+  /* ============================================
+     CORES — FEEDBACK
+     ============================================ */
+
+  --color-error: #dc3545;
+  --color-error-bg: #fff5f5;
+  --color-error-border: #fccaca;
+
+  --color-success: #28a745;
+  --color-success-bg: #f0fff4;
+
+  --color-warning: #ffc107;
+  --color-warning-bg: #fff3cd;
+  --color-warning-text: #856404;
+  --color-warning-border: #ffc107;
+
+  /* ============================================
+     ESPAÇAMENTOS
+     ============================================ */
+ 
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+
+  /* ============================================
+     BORDAS — RAIOS
+     ============================================ */
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* ============================================
+     SOMBRAS
+     ============================================ */
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 10px rgba(36, 55, 130, 0.12);
+  --shadow-lg: 0 8px 24px rgba(36, 55, 130, 0.15);
+
+  /* ============================================
+     TIPOGRAFIA
+     ============================================ */
+
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   
+   --font-xxxs: 0.525rem;
+  --font-xxs: 0.625rem;
+
+  --font-xs: 0.75rem;
+  /* 12px */
+  --font-sm: 0.8125rem;
+  /* 13px */
+  --font-md: 0.875rem;
+  /* 14px */
+  --font-base: 1rem;
+  /* 16px */
+  --font-lg: 1.2rem;
+  --font-xl: 1.3rem;
+  --font-2xl: 1.5rem;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ============================================
+     MISC
+     ============================================ */
+
+  --transition: 0.2s ease;
+  --header-height: 50px;
+}
+
+.page-loading {
+  position: fixed;
+  inset: 0;
+  background: #f8fafc; /* neutro corporativo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  gap: 12px;
+font-family: var(--font-family);
+}
+
+
+
+.page-loading span {
+  font-size: 14px;
+  color: #475569; /* slate-600 */
+  letter-spacing: 0.3px;
+}
+
+/* Spinner clean */
+.loader {
+  width: 42px;
+  height: 42px;
+  border: 3px solid #e2e8f0; /* fundo */
+  border-top-color: var(--blue-standard); /* azul corporativo */
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* Scrollbar geral */
+/* ::-webkit-scrollbar {
+   width: 4px;
+   height: 4px;
+}
+
+
+::-webkit-scrollbar-thumb {
+   background: #c7d0e0;
+   border-radius: 4px;
+} */
+
+::-webkit-scrollbar-track {
+   /* background: transparent; */
+   /* opcional */
+}
+
+.toast-container {
+   position: fixed;
+   top: 20px;
+   right: 20px;
+   z-index: 9999;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.toast {
+   min-width: 250px;
+   padding: var(--spacing-md) var(--spacing-lg);
+   border-radius: var(--radius-md);
+   color: white;
+   font-weight: var(--font-weight-medium);
+   font-size: var(--font-sm);
+   cursor: pointer;
+   animation: fadeIn 0.3s ease;
+}
+
+/* tipos */
+.toast-success {
+   background: var(--color-success);
+}
+
+.toast-error {
+   background: var(--color-error);
+}
+
+.toast-info {
+   background: #0d6efd;
+}
+
+/* animação */
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(-10px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }}

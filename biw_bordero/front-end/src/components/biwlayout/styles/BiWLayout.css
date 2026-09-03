@@ -1,0 +1,429 @@
+/* ─── Design Tokens ──────────────────────────────────────────── */
+
+:root {
+    /* Mantém o bg original intacto */
+    --page-bg: #eef0f4;
+    /* sem alterar */
+
+    /* Superfície dos blocos: branco fosco com tint da cor */
+    --block-bg: rgba(255, 255, 255, 0.78);
+    --block-bg-hover: rgba(255, 255, 255, 0.96);
+
+    /* Borda: quase invisível, apenas estrutural */
+    --block-border: rgba(0, 0, 0, 0.07);
+    --block-border-hover: rgba(0, 0, 0, 0.14);
+
+    --shadow-block:
+        0 1px 1px rgba(0, 0, 0, 0.04),
+        0 2px 6px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90);
+    --shadow-hover:
+        0 4px 20px rgba(0, 0, 0, 0.10),
+        0 1px 4px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+
+    --text-label: #1a1f2e;
+    --text-label-muted: rgba(26, 31, 46, 0.55);
+    --text-tooltip: #f0f3f9;
+    --tooltip-bg: rgba(14, 18, 30, 0.93);
+    --tooltip-border: rgba(255, 255, 255, 0.08);
+
+   
+    --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius-block: 10px;
+}
+
+/* ─── Layout Container ───────────────────────────────────────── */
+.biwlayout {
+    display: grid;
+    grid-template-columns: repeat(24, 50px);
+    grid-template-rows: repeat(19, 40px);
+    gap: 5px;
+    position: relative;
+    padding: 4px 64px;
+    background: transparent;
+   
+}
+
+/* ─── Block Base ─────────────────────────────────────────────── */
+.biwlayout__block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+
+    background-color: var(--status-color, #c8cdd8);
+    border-radius: var(--radius-block);
+    box-shadow: var(--shadow-block);
+/* 
+    Borda = cor do bloco escurecida */
+    border: 1.5px solid rgba(0, 0, 0, 0.18); 
+
+    text-align: center;
+    padding: 4px 3px;
+    cursor: pointer;
+    overflow: visible;
+
+    /* transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base); */
+}
+
+/* Overlay removido — sem shine artificial */
+.biwlayout__block::before {
+    display: none;
+}
+
+.biwlayout__block::after {
+    display: none;
+}
+
+/* Hover */
+.biwlayout__block:hover {
+    transform: translateY(-2px) scale(1.012);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(0, 0, 0, 0.28);
+    z-index: 999;
+}
+
+.biwlayout__block:active {
+    transform: translateY(0) scale(0.988);
+    transition-duration: 70ms;
+}
+
+/* ─── Label ──────────────────────────────────────────────────── */
+.biwlayout__label {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    padding: 0 3px;
+
+    /* Badge pill
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; */
+/* 
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-bottom-color: rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    padding: 4px 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); */
+
+    /* Texto */
+    font-weight: 500;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    white-space: normal;
+    word-break: break-word;
+
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.40),
+        0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Tooltip ────────────────────────────────────────────────── */
+.block-tooltip {
+    position: absolute;
+    bottom: calc(100% + 9px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+
+    background: var(--tooltip-bg);
+    border: 1px solid var(--tooltip-border);
+    border-radius: 5px;
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    color: var(--text-tooltip);
+    /* font-family: 'DM Mono', monospace; */
+    font-size: 9.5px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    padding: 5px 10px;
+    white-space: nowrap;
+
+    pointer-events: none;
+    opacity: 0;
+    transition:
+        opacity var(--transition-fast),
+        transform var(--transition-fast);
+    z-index: 1000;
+}
+
+/* linha colorida no topo do tooltip */
+.block-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1.5px;
+    border-radius: 5px 5px 0 0;
+    background: var(--status-color, rgba(255, 255, 255, 0.15));
+    opacity: 0.6;
+}
+
+.block-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(14, 18, 30, 0.93);
+}
+
+.biwlayout__block:hover .block-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ─── Alert blink ────────────────────────────────────────────── */
+@keyframes blink-border {
+
+    0%,
+    100% {
+        box-shadow: var(--shadow-block);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 2px rgba(220, 50, 50, 0.30),
+            0 0 12px rgba(220, 50, 50, 0.12),
+            var(--shadow-block);
+    }
+}
+
+.biwlayout__block--alert {
+    animation: blink-border 1.4s ease-in-out infinite;
+}
+/* ─── Grid positions (inalteradas) ───────────────────────────── */
+.biwlayout__lfb {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 13;
+}
+
+.biwlayout__lfa {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 13;
+}
+
+.biwlayout__tpf {
+    grid-column: 5 / span 2;
+    grid-row: 2 / span 6;
+}
+
+.biwlayout__logistic {
+    grid-column: 5 / span 2;
+    grid-row: 8 / span 6;
+}
+
+.biwlayout__lda {
+    grid-column: 7 / span 2;
+    grid-row: 1 / span 13;
+}
+
+.biwlayout__ppcs {
+    grid-column: 1 / span 2;
+    grid-row: 14 / span 2;
+}
+
+.biwlayout__ppcd {
+    grid-column: 3 / span 2;
+    grid-row: 14 / span 2;
+}
+
+.biwlayout__pps {
+    grid-column: 1 / span 2;
+    grid-row: 16 / span 1;
+}
+
+.biwlayout__ppd {
+    grid-column: 3 / span 2;
+    grid-row: 16 / span 1;
+}
+
+.biwlayout__plcs {
+    grid-column: 5 / span 2;
+    grid-row: 14 / span 2;
+}
+
+.biwlayout__plcd {
+    grid-column: 7 / span 2;
+    grid-row: 14 / span 2;
+}
+
+.biwlayout__pls {
+    grid-column: 5 / span 2;
+    grid-row: 16 / span 1;
+}
+
+.biwlayout__pld {
+    grid-column: 7 / span 2;
+    grid-row: 16 / span 1;
+}
+
+.biwlayout__spo {
+    grid-column: 4 / span 5;
+    grid-row: 17 / span 1;
+}
+
+.biwlayout__mac {
+    grid-column: 9 / span 1;
+    grid-row: 1 / span 7;
+}
+
+.biwlayout__deliberaalta {
+    grid-column: 9 / span 1;
+    grid-row: 8 / span 4;
+}
+
+.biwlayout__cof1 {
+    grid-column: 9 / span 3;
+    grid-row: 12 / span 1;
+}
+
+.biwlayout__cof {
+    grid-column: 10 / span 2;
+    grid-row: 12 / span 2;
+}
+
+.biwlayout__prs {
+    grid-column: 10 / span 2;
+    grid-row: 14 / span 1;
+}
+
+.biwlayout__prd {
+    grid-column: 10 / span 2;
+    grid-row: 15 / span 1;
+}
+
+.biwlayout__ppp {
+    grid-column: 10 / span 2;
+    grid-row: 16 / span 1;
+}
+
+.biwlayout__ppg {
+    grid-column: 10 / span 2;
+    grid-row: 17 / span 1;
+}
+
+.biwlayout__sce {
+    grid-column: 10 / span 2;
+    grid-row: 1 / span 11;
+}
+
+.biwlayout__ofd {
+    grid-column: 12 / span 2;
+    grid-row: 1 / span 3;
+}
+
+.biwlayout__fda {
+    grid-column: 12 / span 2;
+    grid-row: 4 / span 12;
+}
+
+.biwlayout__fpd {
+    grid-column: 12 / span 2;
+    grid-row: 16 / span 3;
+}
+
+.biwlayout__ofd05 {
+    grid-column: 14 / span 1;
+    grid-row: 1 / span 1;
+}
+
+.biwlayout__ofs05 {
+    grid-column: 15 / span 1;
+    grid-row: 1 / span 1;
+}
+
+.biwlayout__pap {
+    grid-column: 14 / span 2;
+    grid-row: 2 / span 2;
+}
+
+.biwlayout__scc {
+    grid-column: 14 / span 2;
+    grid-row: 4 / span 12;
+}
+
+.biwlayout__pbp {
+    grid-column: 14 / span 2;
+    grid-row: 16 / span 1;
+}
+
+.biwlayout__spg {
+    grid-column: 14 / span 2;
+    grid-row: 17 / span 1;
+}
+
+.biwlayout__ofs {
+    grid-column: 16 / span 2;
+    grid-row: 1 / span 3;
+}
+
+.biwlayout__fsa {
+    grid-column: 16 / span 2;
+    grid-row: 4 / span 12;
+}
+
+.biwlayout__fps {
+    grid-column: 16 / span 2;
+    grid-row: 16 / span 3;
+}
+
+.biwlayout__tea {
+    grid-column: 18 / span 2;
+    grid-row: 1 / span 3;
+}
+
+.biwlayout__aue {
+    grid-column: 18 / span 2;
+    grid-row: 4 / span 12;
+}
+
+.biwlayout__ppa {
+    grid-column: 20 / span 2;
+    grid-row: 1 / span 3;
+}
+
+.biwlayout__auc {
+    grid-column: 20 / span 2;
+    grid-row: 4 / span 12;
+}
+
+.biwlayout__ppf {
+    grid-column: 22 / span 2;
+    grid-row: 1 / span 2;
+}
+
+.biwlayout__ppaload {
+    grid-column: 22 / span 2;
+    grid-row: 3 / span 1;
+}
+
+.biwlayout__spj {
+    grid-column: 22 / span 2;
+    grid-row: 4 / span 1;
+}
+
+.biwlayout__pan {
+    grid-column: 22 / span 2;
+    grid-row: 6 / span 4;
+}
+
+.biwlayout__tup {
+    grid-column: 22 / span 2;
+    grid-row: 9 / span 3;
+}

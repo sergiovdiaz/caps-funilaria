@@ -1,0 +1,313 @@
+/* === Container === */
+.cap-table__container {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* preenche o pai */
+  min-height: 0;
+  /* ESSENCIAL — permite encolher em flex */
+  overflow: hidden;
+}
+
+/* === Header === */
+.cap-table__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--blue-standard);
+  flex-shrink: 0;
+}
+
+.cap-table__header h3.cap__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--blue-standard);
+  margin: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === Ações === */
+.cap-table__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cap-table__selection-count {
+  background: #e8eeff;
+  color: var(--blue-standard);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cap-table__clear-btn {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  padding: 3px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.cap-table__clear-btn:hover {
+  background: #dc2626;
+  color: #fff;
+  border-color: #dc2626;
+}
+
+/* === Botão limpar filtros === */
+.cap-table__clear-filters-btn {
+  position: absolute;
+  top: 65px;
+  right: 18px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  padding: 3px 6px;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.cap-table__clear-filters-btn img {
+  width: 13px;
+  height: 13px;
+  opacity: 0.55;
+  transition: opacity 0.15s;
+}
+
+.cap-table__clear-filters-btn:hover img {
+  opacity: 1;
+}
+
+.cap-table__clear-filters-btn:hover {
+  background: #eef2ff;
+  border-color: var(--blue-standard);
+}
+
+/* === Wrapper com scroll interno === */
+.cap-table__wrapper {
+  flex: 1;
+  /* ocupa todo espaço restante */
+  min-height: 0;
+  /* permite encolher */
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.cap-table__wrapper::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.cap-table__wrapper::-webkit-scrollbar-thumb {
+  background: #c7d0e0;
+  border-radius: 4px;
+}
+
+.cap-table__wrapper::-webkit-scrollbar-track {
+  background: #f5f6fa;
+}
+
+/* === Tabela === */
+.cap-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 750px;
+}
+
+/* === Cabeçalho === */
+.cap-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--blue-standard);
+  color: #fff;
+  text-align: left;
+  padding: 7px 8px 5px !important;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Linha de filtros embutida no th */
+.cap-table thead th input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 2px 5px;
+  font-size: 0.72rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  outline: none;
+  box-sizing: border-box;
+  transition: border 0.15s, background 0.15s;
+}
+
+.cap-table thead th input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cap-table thead th input:focus {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Botões de sort */
+.cap-table th button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.cap-table th button:hover {
+  color: #fde68a;
+}
+
+.cap-table th button:focus {
+  outline: none;
+}
+
+/* Cabeçalho: label + sort inline */
+.cap-table thead th>div {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* === Células === */
+.cap-table td {
+  padding: 7px 8px !important;
+  font-size: 0.78rem !important;
+  border-bottom: 1px solid #eef0f6;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.cap-table tr:nth-child(even) {
+  background: #f4f7ff;
+}
+
+/* === Estados das linhas === */
+.cap-table tbody tr {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cap-table tbody tr:hover {
+  background-color: #d4ddf6;
+}
+.cap-table__row--selected {
+  background-color: #c7d5ff !important;
+  box-shadow: inset 3px 0 0 var(--blue-standard);
+}
+
+.cap-table__row--selected:hover {
+  background-color: #b3c8ff !important;
+}
+
+.cap-table__row--selecting {
+  background: #e0f2fe !important;
+}
+
+/* Linha desabilitada (já justificada) */
+.cap-table__row--disabled {
+  background: #ededef !important;
+  cursor: not-allowed !important;
+      
+  border-left: 3px solid #f87171;
+}
+
+.cap-table__row--disabled:hover {
+  background: #e9eaec !important;
+}
+
+.cap-table__row--disabled td {
+  color: #707172;
+}
+
+
+.cap-table__row--disabled td:first-child::before {
+  content: "🔒";
+  font-size: 0.7rem;
+}
+
+/* === Checkbox === */
+.cap-table__cell--checkbox {
+  width: 36px;
+  text-align: center;
+  color: var(--blue-standard);
+  font-size: 0.75rem;
+}
+
+.cap-table__checkbox {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: var(--blue-standard);
+  font-size: 0.75rem;
+}
+
+/* === Loading === */
+.cap-table__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #6b7280;
+  gap: 10px;
+}
+
+.cap-table__loading::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  border: 3px solid #e5e7eb;
+  border-top-color: var(--blue-standard);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

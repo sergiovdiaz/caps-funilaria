@@ -1,0 +1,292 @@
+/* ─── Container ─────────────────────────────────────────────── */
+.cap-details {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  gap: 0;
+}
+
+/* Empty state */
+.cap-details--empty {
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.cap-details--empty__icon {
+  font-size: 2rem;
+  opacity: 0.4;
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+.cd-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--blue-standard);
+  flex-shrink: 0;
+}
+
+.cd-header__title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--blue-standard);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.cd-header__chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* ─── Chips de info ──────────────────────────────────────────── */
+.cd-chip {
+  background: var(--blue-light-bg);
+  border: 1px solid var(--blue-standard);
+  border-radius: var(--radius-md);
+  padding: 4px 10px;
+  font-size: var(--font-xs);
+  color: var(--blue-dark);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+
+
+/* ─── Form ───────────────────────────────────────────────────── */
+.cd-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  padding-right: 2px;
+}
+
+.cd-form::-webkit-scrollbar {
+  width: 4px;
+}
+
+.cd-form::-webkit-scrollbar-thumb {
+  background: #c7d0e0;
+  border-radius: 4px;
+}
+
+/* ─── Divider de seção ───────────────────────────────────────── */
+.cd-divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 2px;
+}
+
+.cd-divider::before,
+.cd-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.cd-divider__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+}
+
+/* ─── Field row com botão ao lado ────────────────────────────── */
+.cd-field-row {
+  display: contents;
+}
+
+.cd-field-row--with-btn {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.cd-field-row--with-btn .fcb {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ─── Botão relacional ───────────────────────────────────────── */
+.cd-relacional-btn {
+  flex-shrink: 0;
+  padding: 6px 11px;
+  border-radius: var(--radius-md);
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-family);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+  margin-bottom: 5px;
+  /* alinha com o input */
+}
+
+.cd-relacional-btn.pending {
+  background: #fff7ed;
+  border: 1.5px solid #f97316;
+  color: #ea580c;
+  animation: cd-pulse 2.2s ease-in-out infinite;
+}
+
+.cd-relacional-btn.pending:hover {
+  background: #ffedd5;
+}
+
+.cd-relacional-btn.ok {
+  background: #f0fdf4;
+  border: 1.5px solid #4ade80;
+  color: #16a34a;
+}
+
+.cd-relacional-btn.ok:hover {
+  background: #dcfce7;
+}
+
+@keyframes cd-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.18);
+  }
+}
+
+/* ─── 2 colunas ──────────────────────────────────────────────── */
+.cd-row-2 {
+  display: flex;
+  gap: 8px;
+}
+
+.cd-row-2>* {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ─── Bloco mantenedor ───────────────────────────────────────── */
+.cd-mantenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #fffbeb;
+  border-radius: var(--radius-md);
+  border-left: 3px solid #f59e0b;
+  margin: var(--spacing-xxs) 0;
+}
+
+.cd-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-dark);
+}
+
+.cd-checkbox input[type="checkbox"] {
+  accent-color: var(--blue-standard);
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
+
+.cd-mantenedor__search {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cd-input-livre {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  font-family: var(--font-family);
+  color: var(--text-dark);
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.cd-input-livre:focus {
+  outline: none;
+  border-color: var(--blue-standard);
+  box-shadow: 0 0 0 2px var(--blue-light-bg);
+}
+
+/* ─── Campo comentário ───────────────────────────────────────── */
+.cd-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: var(--spacing-sm);
+}
+
+.cd-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.cd-label__optional {
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-left: 3px;
+}
+
+.cd-textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  font-family: var(--font-family);
+  color: var(--text-dark);
+  resize: vertical;
+  height: 40px;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.cd-textarea:focus {
+  outline: none;
+  border-color: var(--blue-standard);
+  box-shadow: 0 0 0 2px var(--blue-light-bg);
+}
+
+/* ─── Actions ────────────────────────────────────────────────── */
+.cd-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 4px;
+  flex-shrink: 0;
+}

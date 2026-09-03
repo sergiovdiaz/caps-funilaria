@@ -1,0 +1,393 @@
+/* ============================================================
+   CapHistorico — estilos principais
+   ============================================================ */
+
+.cap-historico {
+    display: flex;
+    flex-direction: column;
+    /* gap: var(--spacing-sm); */
+    padding: var(--spacing-xl);
+    background: var(--bg-standard);
+    min-height: 100%;
+    font-family: var(--font-family);
+    width: 100%;
+}
+
+/* ------------------------------------------------------------
+   FILTROS
+   ------------------------------------------------------------ */
+
+.cap-historico__filters {
+    display: flex;
+    align-items: flex-end;
+    background: tr;
+    margin-top: -18px;
+    font-size: var(--font-xs);
+}
+
+/* Campos de data */
+.cap-historico__date-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-right: var(--spacing-sm);
+}
+
+/* Presets */
+.cap-historico__presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.cap-historico__preset-btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-family: var(--font-family);
+    font-size: var(--font-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    background: var(--blue-muted);
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background var(--transition), border-color var(--transition),
+        color var(--transition), box-shadow var(--transition);
+    white-space: nowrap;
+    line-height: 1.4;
+}
+
+.cap-historico__preset-btn:hover {
+    background: var(--blue-light-bg);
+    border-color: var(--blue-standard);
+    color: var(--blue-dark);
+    box-shadow: 0 0 0 2px rgba(36, 55, 130, 0.08);
+}
+.cap-historico__preset-btn.active {
+    background: var(--blue-standard);
+    color: var(--text-white);
+    border-color: var(--blue-dark);
+    box-shadow: 0 0 0 2px rgba(36, 55, 130, 0.15);
+}
+
+.cap-historico__preset-btn:active {
+    background: var(--blue-standard);
+    color: var(--text-white);
+    border-color: var(--blue-dark);
+}
+
+/* Botão Buscar */
+.cap-historico__search-btn {
+    padding: var(--spacing-sm) var(--spacing-2xl);
+    font-family: var(--font-family);
+    font-size: var(--font-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-white);
+    background: var(--blue-standard);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background var(--transition), box-shadow var(--transition),
+        transform var(--transition);
+    letter-spacing: 0.3px;
+    box-shadow: var(--shadow-md);
+    margin-left: var(--spacing-sm);
+}
+
+.cap-historico__search-btn:hover {
+    background: var(--blue-dark);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+}
+
+.cap-historico__search-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.cap-historico__search-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* BOTÃO SWITCH */
+
+/* Container geral */
+.cap-historico__metric-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-left: auto;
+    /* joga pra direita (opcional) */
+}
+
+/* Label */
+.cap-historico__metric-label {
+    font-size: var(--font-xxs);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.cap-historico__metric-switch {
+    display: inline-flex;
+    align-items: center;
+    background: var(--blue-muted);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-full);
+    padding: 3px;
+    gap: 3px;
+    margin-left: auto
+}
+
+.cap-historico__metric-switch button {
+    border: none;
+    background: transparent;
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-family);
+    font-size: var(--font-xs);
+    font-weight: var(--font-weight-semibold) ;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+
+/* Botão ativo - cores invertidas */
+.cap-historico__metric-switch button.active {
+    background: var(--blue-standard, #243782);
+    color: #ffffff;
+}
+
+/* Hover para botões não ativos */
+.cap-historico__metric-switch button:hover:not(.active) {
+    background: var(--bg-hover, #f0f2f5);
+}
+
+/* Hover para botão ativo (opcional, mais escuro) */
+.cap-historico__metric-switch button.active:hover {
+    background: var(--blue-standard-dark, #1a2961);
+}
+
+
+/* ------------------------------------------------------------
+   STATUS (loading / error)
+   ------------------------------------------------------------ */
+
+.cap-historico__status {
+    font-size: var(--font-sm);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin: 0;
+}
+
+.cap-historico__status--loading {
+    background: var(--blue-muted);
+    color: var(--text-primary);
+    border: 1px solid rgba(36, 55, 130, 0.15);
+}
+
+.cap-historico__status--error {
+    background: var(--color-error-bg);
+    color: var(--color-error);
+    border: 1px solid var(--color-error-border);
+}
+
+/* ------------------------------------------------------------
+   GRID DE GRÁFICOS
+   ------------------------------------------------------------ */
+   .cap-historico__chart-line-wrapper{
+    margin-bottom: var(--spacing-sm);
+    width: 100%;
+    max-width: 100%;
+    
+   }
+
+   /* Gráfico Linha ocupa toda a linha */
+   .cap-historico__chart-line {
+       grid-column: 1 / -1;
+    
+   }
+
+   /* Container dos demais gráficos — 3 colunas */
+   .cap-historico__charts-grid {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+       gap: var(--spacing-sm);
+   }
+
+   /* Responsividade — deixa 1 coluna em telas pequenas */
+   @media (max-width: 768px) {
+       .cap-historico__charts-grid {
+           grid-template-columns: 1fr;
+       }
+   }
+   
+   .cap-historico__charts {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 30vw, 350px), 1fr));
+   }
+
+/* ------------------------------------------------------------
+   DailyTrendChart — ocupa a largura toda (coluna cheia)
+   ------------------------------------------------------------ */
+
+.daily-trend-card {
+    grid-column: 1 / -1;
+}
+
+
+/* ------------------------------------------------------------
+   Toolbar do gráfico temporal
+   ------------------------------------------------------------ */
+
+.chart-toolbar {
+    display: inline-flex;
+    align-items: center;
+    background: var(--blue-muted);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-full);
+    padding: 3px;
+    gap: 3px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.chart-toolbar button {
+    border: none;
+    background: transparent;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-family);
+    font-size: var(--font-xxs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+
+.chart-toolbar button:hover:not(.active) {
+    background: var(--bg-hover, #f0f2f5);
+}
+
+.chart-toolbar button.active {
+    background: var(--blue-standard);
+    color: var(--text-white);
+}
+
+.chart-toolbar button.active:hover {
+    background: var(--blue-dark);
+}
+
+/* ------------------------------------------------------------
+   ApexCharts — ajustes de integração com o tema
+   ------------------------------------------------------------ */
+
+/* Remove fundo branco padrão do apex */
+.apexcharts-canvas svg {
+    background: transparent !important;
+    
+}
+
+/* Tooltip */
+.apexcharts-tooltip {
+    font-family: var(--font-family) !important;
+    font-size: var(--font-sm) !important;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--border-light) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.apexcharts-tooltip-title {
+    background: var(--blue-muted) !important;
+    color: var(--text-primary) !important;
+    font-weight: var(--font-weight-semibold) !important;
+    border-bottom: 1px solid var(--border-light) !important;
+}
+
+/* Labels dos eixos */
+.apexcharts-xaxis-label,
+.apexcharts-yaxis-label {
+    fill: var(--text-secondary) !important;
+    font-family: var(--font-family) !important;
+}
+
+/* Linha de grid */
+.apexcharts-gridline {
+    stroke: var(--border-light) !important;
+}
+
+/* DataLabels */
+/* .apexcharts-datalabel {
+    font-family: var(--font-family) !important;
+    font-size: var(--font-xs) !important;
+    fill: var(--text-white) !important;
+} */
+
+/* Barra com filtro ativo — destaque */
+.apexcharts-bar-area.active-bar {
+    filter: brightness(1.15);
+}
+
+/* ------------------------------------------------------------
+   Responsividade
+   ------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+    .cap-historico {
+        padding: var(--spacing-lg);
+        gap: var(--spacing-lg);
+    }
+
+    .cap-historico__filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cap-historico__search-btn {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .cap-historico__charts {
+        grid-template-columns: 1fr;
+    }
+
+    .daily-trend-card {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .cap-historico__presets {
+        gap: var(--spacing-xs);
+    }
+
+    .cap-historico__preset-btn {
+        font-size: var(--font-xs);
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+.cap-historico__table-wrapper{
+    height: 28rem;
+}
+
+.cap-historico__top-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    align-items: stretch;
+}
+
+.cap-historico__top-charts>* {
+    height: 100%;
+}

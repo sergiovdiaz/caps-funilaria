@@ -1,0 +1,46 @@
+{
+  "name": "biw_bordero",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node generate-version.js",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "npx serve -s dist -l 5173"
+  },
+  "dependencies": {
+    "@emotion/is-prop-valid": "^1.4.0",
+    "apexcharts": "^4.5.0",
+    "date-fns": "^4.1.0",
+    "file-saver": "^2.0.5",
+    "framer-motion": "^12.23.12",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.479.0",
+    "moment-timezone": "^0.5.47",
+    "react": "^19.0.0",
+    "react-apexcharts": "^1.7.0",
+    "react-datepicker": "^8.2.1",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "react-router-dom": "^7.4.1",
+    "react-select": "^5.10.2",
+    "recharts": "^3.8.1",
+    "serve": "^14.2.5",
+    "socket.io-client": "^4.8.1",
+    "xlsx": "^0.18.5",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/react": "^19.0.10",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "vite": "^6.2.0",
+    "vite-plugin-svgr": "^4.5.0"
+  }
+}

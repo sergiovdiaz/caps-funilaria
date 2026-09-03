@@ -1,0 +1,242 @@
+.cycletime {
+  font-family: var(--font-family);
+  background-color: #eff2f8;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px 0 0 0;
+  width: 100%;
+  min-height: calc(
+    100vh - var(--header-height)
+  ); /* Subtrai a altura do header */
+  box-sizing: border-box;
+  overflow: auto;
+  margin: 0;
+}
+
+.cycletime__title {
+
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-align: center;
+  color: #243782;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 8px;
+  margin-top: -10px;
+}
+
+.cycletime__title::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background-color: #243782;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.cycletime__selectors {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 20px; /* Aumentei o espaçamento entre os itens */
+  margin: 0 auto 25px;
+  padding: 15px;
+  background-color: #f8f9ff; /* Fundo sutil para agrupar os seletores */
+  border-radius: 10px;
+  max-width: fit-content;
+  box-shadow: 0 2px 15px rgba(36, 55, 130, 0.08);
+  margin-top: -10px;
+}
+
+.cycletime__selector {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 280px;
+  margin: 0;
+
+  position: relative;
+}
+
+.cycletime__label {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #243782;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+}
+
+.cycletime__label::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #243782;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+.cycletime__combobox {
+  padding: 12px 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1.5px solid #d1d7ed;
+  background-color: #ffffff;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #2d3748;
+  box-shadow: 0 2px 8px rgba(36, 55, 130, 0.05);
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23243782'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  cursor: pointer;
+  accent-color: #243782; /* Cor da seleção */
+}
+
+.cycletime__combobox:focus {
+  border-color: #243782;
+  box-shadow: 0 0 0 3px rgba(36, 55, 130, 0.15);
+  background-color: #f8faff;
+}
+
+.cycletime__combobox:hover {
+  border-color: #8a9ad4;
+  box-shadow: 0 2px 12px rgba(36, 55, 130, 0.1);
+}
+
+.cycletime__combobox::placeholder {
+  color: #a0aec0;
+  opacity: 1;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Efeito de destaque no container quando um select está focado */
+.cycletime__selector:focus-within .cycletime__label {
+  color: #1a2a6b;
+}
+
+.cycletime__selector:focus-within .cycletime__label::before {
+  background-color: #1a2a6b;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.cycletime__combobox option {
+  padding: 12px 15px;
+  background: white;
+  color: #2d3748;
+}
+
+.cycletime__combobox option:hover {
+  background-color: #f0f4ff !important;
+}
+
+.cycletime__combobox option:checked {
+  background-color: #f0f4ff;
+  font-weight: 600;
+  color: #243782;
+}
+
+.cycletime__btn-history {
+  background-color: var(--blue-standard);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+  margin-left: 1rem;
+}
+
+.cycletime__btn-history:hover {
+  background-color: #032c4c;
+}
+
+/* =========================
+   Modo AO VIVO / REPLAY
+========================= */
+.cycletime__mode-switch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.cycletime__mode-switch button {
+  padding: 0.5rem 1.2rem;
+  border: 1.5px solid #243782;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #243782;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.cycletime__mode-switch button:hover {
+  background-color: #f0f4ff;
+}
+
+.cycletime__mode-switch button.active {
+  background-color: #243782;
+  color: #ffffff;
+  border-color: #243782;
+}
+
+/* =========================
+   Controles de REPLAY
+========================= */
+.cycletime__replay-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.cycletime__replay-controls input[type="datetime-local"] {
+  padding: 0.5rem 1rem;
+  border: 1.5px solid #d1d7ed;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 0.9rem;
+  color: #2d3748;
+  transition: all 0.2s ease-in-out;
+}
+
+.cycletime__replay-controls input[type="datetime-local"]:focus {
+  border-color: #243782;
+  box-shadow: 0 0 0 3px rgba(36, 55, 130, 0.15);
+  outline: none;
+}
+
+.cycletime__replay-controls button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--blue-standard);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.cycletime__replay-controls button:hover {
+  background-color: #032c4c;
+}

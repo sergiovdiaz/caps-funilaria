@@ -1,0 +1,1193 @@
+/* ============================================================
+   DASHBOARD — DESIGN SYSTEM
+   Organização:
+     0. Google Fonts
+     1. Variáveis Primitivas
+     2. Variáveis Semânticas (Light + Dark)
+     3. Reset & Base
+     4. Layout Principal
+     5. Header
+     6. Cards (Genérico, Performance, Buffer)
+     7. Stats Grid
+     8. Operations Table
+     9. Line Status Card
+    10. Theme Toggle
+    11. Responsividade
+============================================================ */
+
+/* ============================================================
+   0. GOOGLE FONTS
+============================================================ */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap'); */
+
+.dashboard__container {
+    --fs-xs: clamp(0.7rem, 0.2vw + 0.6rem, 0.9rem);
+    --fs-sm: clamp(0.9rem, 0.3vw + 0.7rem, 1.1rem);
+    --fs-md: clamp(1rem, 0.4vw + 0.8rem, 1.6rem);
+    --fs-lg: clamp(1.4rem, 1.4vw + 0.5rem, 2.4rem);
+    --fs-xl: clamp(2rem, 2vw + 0.5rem, 3.5rem);
+    --fs-xxl: clamp(3rem, 4vw + 0.5rem, 6rem);
+
+    /* ── Brand ── */
+    --primitive-brand-900: #1a2a5e;
+    --primitive-brand-700: #243782;
+    --primitive-brand-600: #3a4d9a;
+    --primitive-brand-500: #5265b3;
+    --primitive-brand-100: #e8ebf7;
+    --primitive-brand-050: #eff2f8;
+
+    /* ── Neutros ── */
+    --primitive-gray-900: #1e293b;
+    --primitive-gray-700: #334155;
+    --primitive-gray-600: #475569;
+    --primitive-gray-500: #64748b;
+    --primitive-gray-400: #94a3b8;
+    --primitive-gray-300: #cbd5e1;
+    --primitive-gray-200: #e2e8f0;
+    --primitive-gray-100: #f1f5f9;
+    --primitive-white: #ffffff;
+
+    /* ── Funcionais ── */
+    --primitive-success: #22c55e;
+    --primitive-warning: #f59e0b;
+    --primitive-danger: #f6393c;
+    --primitive-danger-dark: #b91c1c;
+    --primitive-info: #3b82f6;
+    --primitive-info-light: #93c5fd;
+
+    /* ── Dark UI Palette ── */
+    --primitive-dark-deep: #0d0e10;
+    --primitive-dark-surface: #13151a;
+    --primitive-dark-elevated: #0d0e10;
+    --primitive-dark-border: #454647;
+    --primitive-dark-border-sm: #161820;
+    --primitive-dark-line: #1a1c22;
+    --primitive-dark-muted: #2a2d38;
+    --primitive-dark-muted-2: #3a3f50;
+
+    /* ── Dark Text Palette ── */
+    --primitive-dark-text-bright: #f8fafc;
+    --primitive-dark-text-mid: #c8cad4;
+    --primitive-dark-text-muted: #8a8f9e;
+    --primitive-dark-text-dim: #4e5568;
+    --primitive-dark-text-dimmer: #3e4251;
+
+    /* ── Accent (Operations/Line Status) ── */
+    --primitive-accent-red: #ee1f23;
+    --primitive-accent-red-dim: #7c0a0c;
+    --primitive-accent-red-text: #f87171;
+    --primitive-accent-red-light: #fca5a5;
+    --primitive-accent-red-bg: rgba(238, 31, 35, 0.08);
+    --primitive-accent-red-border: rgba(238, 31, 35, 0.5);
+
+    --primitive-accent-green: #4ade80;
+    --primitive-accent-green-light: #bbf7d0;
+    --primitive-accent-green-entrada: #10b981;
+    --primitive-accent-green-bg: rgba(22, 163, 74, 0.05);
+    --primitive-accent-green-border: rgba(22, 163, 74, 0.25);
+
+    /* ── Spacing ── */
+    --primitive-space-1: 0.25rem;
+    --primitive-space-2: 0.5rem;
+    --primitive-space-4: 1rem;
+    --primitive-space-6: 1.5rem;
+    --primitive-space-8: 2rem;
+
+    /* ── Tipografia ── */
+    --primitive-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* ── Radius ── */
+    --primitive-radius-sm: 0.375rem;
+    --primitive-radius-md: 0.75rem;
+    --primitive-radius-card: 6px;
+
+    --radius-card: 6px;
+}
+
+/* ============================================================
+   2. VARIÁVEIS SEMÂNTICAS — LIGHT (padrão)
+============================================================ */
+.dashboard__container {
+    /* ── Backgrounds ── */
+    --bg-page: var(--primitive-brand-050);
+    --bg-card: var(--primitive-white);
+    --bg-surface-secondary: var(--primitive-brand-100);
+
+    /* ── Texto ── */
+    --text-primary: var(--primitive-gray-900);
+    --text-secondary: var(--primitive-gray-600);
+    --text-brand: var(--primitive-brand-700);
+
+    /* ── Marca ── */
+    --brand-primary: var(--primitive-brand-700);
+    --brand-dark: var(--primitive-brand-900);
+    --brand-gradient-start: var(--primitive-brand-700);
+    --brand-gradient-end: var(--primitive-brand-600);
+
+    /* ── Bordas ── */
+    --border-subtle: var(--primitive-gray-300);
+
+    /* ── Status ── */
+
+    /* ── Sombras ── */
+    --shadow-rgb: 36, 55, 130;
+    --shadow-md: 0 4px 6px -1px rgba(var(--shadow-rgb), 0.10);
+    --shadow-lg: 0 10px 15px -3px rgba(var(--shadow-rgb), 0.10);
+
+    /* ── Espaçamento semântico ── */
+    --space-xs: var(--primitive-space-1);
+    --space-sm: var(--primitive-space-2);
+    --space-md: var(--primitive-space-4);
+    --space-lg: var(--primitive-space-6);
+    --space-xl: var(--primitive-space-8);
+
+    /* ── Radius semântico ── */
+    --radius-sm: var(--primitive-radius-sm);
+
+    /* ── Tipografia semântica ── */
+    --font-body: var(--primitive-font-body);
+
+    /* ── Transições ── */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.20s ease;
+    --transition-slow: 0.30s ease;
+
+    /* ── Operations Table — tokens LIGHT ── */
+    --op-bg-deep: var(--primitive-gray-100);
+    --op-bg-surface: var(--primitive-white);
+    --op-bg-hover: var(--primitive-brand-050);
+    --op-border: var(--primitive-gray-200);
+    --op-border-sm: var(--primitive-gray-200);
+    --op-border-line: var(--primitive-gray-300);
+    --op-header-color: var(--primitive-brand-700);
+    --op-cell-fixed-bg: var(--primitive-white);
+    --op-cell-fixed-hover: var(--primitive-brand-050);
+    --op-scrollbar-track: var(--primitive-gray-100);
+    --op-scrollbar-thumb: var(--primitive-brand-500);
+    --op-scrollbar-thumb-hover: var(--primitive-brand-700);
+    --op-shadow: 0 0 0 1px rgba(36, 55, 130, 0.08), 0 4px 24px rgba(36, 55, 130, 0.08);
+
+    --op-chip-neutral-bg: var(--primitive-gray-100);
+    --op-chip-neutral-border: var(--primitive-gray-200);
+
+    /* ── Line Status Card — tokens LIGHT ── */
+    --ls-bg-surface: var(--primitive-white);
+    --ls-bg-deep: var(--primitive-brand-050);
+    --ls-border: var(--primitive-gray-200);
+    --ls-border-line: var(--primitive-gray-200);
+    --ls-text-dim: var(--primitive-gray-400);
+    --ls-text-muted: var(--primitive-gray-500);
+    --ls-text-mid: var(--primitive-gray-600);
+    --ls-shadow: 0 0 0 1px rgba(36, 55, 130, 0.08), 0 4px 24px rgba(36, 55, 130, 0.08);
+
+    /* ── Performance Card — tokens LIGHT ── */
+    --perf-bg: var(--primitive-white);
+    --perf-border: var(--primitive-brand-700);
+    --perf-shadow: 0 0 0 1px rgba(36, 55, 130, 0.12), 0 4px 20px rgba(36, 55, 130, 0.10);
+    --perf-header-divider: var(--primitive-brand-100);
+
+    --perf-stat-bg: var(--primitive-white);
+    --perf-stat-border: var(--primitive-gray-200);
+    --perf-stat-shadow: 0 1px 3px rgba(36, 55, 130, 0.06);
+
+    --perf-neutral-label: var(--primitive-gray-500);
+    --perf-neutral-value: var(--primitive-gray-700);
+
+    --perf-highlight-shadow: 0 4px 12px rgba(36, 55, 130, 0.25), 0 2px 4px rgba(36, 55, 130, 0.12);
+
+    --perf-success-label: var(--primitive-success);
+    --perf-success-value: var(--primitive-gray-600);
+
+    --perf-danger-label: var(--primitive-gray-500);
+    --perf-danger-value: var(--primitive-danger);
+
+    /* ── Buffer Card — tokens LIGHT ── */
+    --buf-bg: var(--primitive-white);
+    --buf-border: var(--primitive-gray-200);
+    --buf-shadow: 0 0 0 1px rgba(36, 55, 130, 0.06), 0 2px 12px rgba(36, 55, 130, 0.06);
+
+    --buf-row-bg: var(--primitive-brand-050);
+    --buf-row-border: var(--primitive-gray-200);
+    --buf-number-color: var(--primitive-gray-900);
+
+    /* ── Dashboard Header — tokens LIGHT ── */
+    --hdr-border-bottom: var(--primitive-gray-200);
+    --hdr-title-color: var(--primitive-brand-700);
+    --hdr-time-color: var(--primitive-brand-700);
+
+
+    --button-back-color: var(--primitive-brand-700):
+}
+
+/* ============================================================
+   2b. VARIÁVEIS SEMÂNTICAS — DARK
+============================================================ */
+[data-theme='dark'] {
+    --bg-page: var(--primitive-dark-deep);
+    --bg-card: var(--primitive-dark-surface);
+    --bg-surface-secondary: var(--primitive-gray-700);
+
+    --button-back-color: white;
+    --text-primary: var(--primitive-dark-text-bright);
+    --text-secondary: var(--primitive-gray-300);
+    --text-brand: var(--primitive-dark-text-bright);
+
+    --brand-primary: var(--primitive-info);
+    --brand-dark: #1d4ed8;
+    --brand-gradient-start: var(--primitive-info);
+    --brand-gradient-end: #2563eb;
+
+    --border-subtle: var(--primitive-gray-700);
+    --shadow-rgb: 0, 0, 0;
+
+    /* ── Operations Table — tokens DARK ── */
+    --op-bg-deep: var(--primitive-dark-deep);
+    --op-bg-surface: var(--primitive-dark-surface);
+    --op-bg-hover: var(--primitive-dark-elevated);
+    --op-border: var(--primitive-dark-border);
+    --op-border-sm: var(--primitive-dark-border-sm);
+    --op-border-line: var(--primitive-dark-line);
+    --op-header-color: var(--primitive-dark-text-bright);
+    --op-cell-fixed-bg: var(--primitive-dark-surface);
+    --op-cell-fixed-hover: var(--primitive-dark-elevated);
+    --op-scrollbar-track: var(--primitive-dark-deep);
+    --op-scrollbar-thumb: var(--primitive-dark-muted);
+    --op-scrollbar-thumb-hover: var(--primitive-dark-muted-2);
+    --op-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 24px 48px rgba(0, 0, 0, 0.5);
+
+    --op-chip-neutral-bg: rgba(255, 255, 255, 0.03);
+    --op-chip-neutral-border: var(--primitive-dark-border);
+
+    /* ── Line Status Card — tokens DARK ── */
+    --ls-bg-surface: var(--primitive-dark-surface);
+    --ls-bg-deep: var(--primitive-dark-deep);
+    --ls-border: var(--primitive-dark-border);
+    --ls-border-line: var(--primitive-dark-line);
+    --ls-text-dim: var(--primitive-dark-text-dimmer);
+    --ls-text-muted: var(--primitive-dark-text-muted);
+    --ls-text-mid: var(--primitive-dark-text-dim);
+    --ls-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 24px 48px rgba(0, 0, 0, 0.6);
+
+    /* ── Performance Card — tokens DARK ── */
+    --perf-bg: var(--primitive-dark-surface);
+    --perf-border: var(--primitive-dark-border);
+    --perf-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 4px 20px rgba(0, 0, 0, 0.4);
+    --perf-header-divider: var(--primitive-dark-border);
+
+    --perf-stat-bg: var(--primitive-dark-surface);
+    --perf-stat-border: var(--primitive-dark-border);
+    --perf-stat-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+    --perf-neutral-label: var(--primitive-dark-text-muted);
+    --perf-neutral-value: var(--primitive-dark-text-mid);
+
+    --perf-highlight-shadow: 0 4px 12px rgba(59, 130, 246, 0.3), 0 2px 4px rgba(59, 130, 246, 0.15);
+
+    --perf-success-label: var(--primitive-success);
+    --perf-success-value: var(--primitive-success);
+
+    --perf-danger-label: var(--primitive-danger);
+    --perf-danger-value: var(--primitive-danger);
+
+    /* ── Buffer Card — tokens DARK ── */
+    --buf-bg: var(--primitive-dark-surface);
+    --buf-border: var(--primitive-dark-border);
+    --buf-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 4px 20px rgba(0, 0, 0, 0.35);
+
+    --buf-row-bg: var(--primitive-dark-elevated);
+    --buf-row-border: var(--primitive-dark-border);
+    --buf-number-color: var(--primitive-dark-text-bright);
+
+    /* ── Dashboard Header — tokens DARK ── */
+    --hdr-border-bottom: var(--primitive-dark-border);
+    --hdr-title-color: var(--primitive-dark-text-bright);
+    --hdr-time-color: var(--primitive-dark-text-bright);
+}
+
+/* ============================================================
+   3. RESET & BASE
+============================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+/* ============================================================
+   4. LAYOUT PRINCIPAL
+============================================================ */
+.dashboard__container {
+    font-family: var(--font-body);
+    background: var(--bg-page);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 0 var(--space-lg);
+    width: 100%;
+    max-width: 100vw;
+}
+
+.dashboard__main-grid {
+    display: grid;
+    gap: var(--space-sm);
+    width: 100%;
+}
+
+.dashboard__content-area {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.cards__row {
+    display: flex;
+    gap: var(--space-sm);
+    width: 100%;
+
+}
+
+.cards__main {
+    flex: 2.5;
+}
+
+.cards__side {
+    flex: 1;
+}
+
+
+/* ============================================================
+   5. HEADER
+============================================================ */
+.dashboard__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+    border-bottom: 2px solid var(--hdr-border-bottom);
+}
+
+.dashboard__header-left {
+    display: flex;
+    align-items: center;
+    width: 12.5rem;
+}
+
+.header__back {
+    cursor: pointer;
+    color: var(--button-back-color);
+    transition: transform .15s ease, color .15s ease;
+}
+
+.header__back:hover {
+    transform: translateX(-3px);
+}
+
+.dashboard__header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard__header-title {
+    font-size: var(--fs-xxl);
+    font-weight: 700;
+    color: var(--hdr-title-color);
+    letter-spacing: -0.02em;
+}
+
+.dashboard__header-right {
+    text-align: right;
+    width: 12.7rem;
+}
+
+.dashboard__header-time {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--hdr-time-color);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+}
+
+.dashboard__header-date {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--perf-neutral-value);
+    margin-top: var(--space-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+
+/* ============================================================
+   6. CARD GENÉRICO
+============================================================ */
+.cardandon {
+    background: var(--bg-card);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-subtle);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-md);
+    transition: box-shadow var(--transition-base);
+ 
+}
+
+
+/* ============================================================
+   6a. CARD — PERFORMANCE
+============================================================ */
+.card--performance {
+    background: var(--perf-bg);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--perf-border);
+    box-shadow: var(--perf-shadow);
+    height: 100%;
+}
+
+.performance__header {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--perf-header-divider);
+}
+
+.performance__title {
+    font-size: var(--fs-sm);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--perf-neutral-value);
+    margin: 0;
+}
+
+
+/* ============================================================
+   6b. CARD — BUFFER
+============================================================ */
+.card--buffer {
+    background: var(--buf-bg);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--buf-border);
+    box-shadow: var(--buf-shadow);
+    flex: 1;
+    height: 100%;
+}
+
+.card--buffer .section__title {
+    display: block;
+    font-size: var(--fs-sm);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--perf-neutral-value);
+    margin: 0 0 var(--space-sm);
+}
+
+.buffer__content {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.buffer__section {
+    flex: 1;
+}
+
+.buffer__header {
+    margin-bottom: var(--primitive-space-3);
+}
+
+.buffer__label {
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--perf-neutral-label);
+}
+
+.buffer__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--buf-row-bg);
+    border-radius: var(--radius-sm);
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--buf-row-border);
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-sm);
+    transition: background var(--transition-fast);
+}
+
+.buffer__row:last-child {
+    margin-bottom: 0;
+}
+
+.buffer__row--entrada {
+    border-left: 3px solid var(--perf-neutral-label);
+}
+
+.buffer__row--saida {
+    border-left: 3px solid var(--perf-neutral-label);
+}
+
+.buffer__row--empty {
+    opacity: 0.7;
+    font-style: italic;
+    border-left: none;
+}
+
+.buffer__acumulo-label {
+    font-size: var(--fs-md);
+    font-weight: 600;
+    color: var(--perf-neutral-value);
+}
+
+.buffer__acumulo-number {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--buf-number-color);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+}
+
+.buffer__empty-text {
+    font-size: var(--fs-xs);
+    color: var(--buf-number-color);
+    letter-spacing: 0.04em;
+}
+
+
+/* ============================================================
+   7. STATS GRID
+============================================================ */
+.stats__grid {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+}
+
+.stats__grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.stats__grid::-webkit-scrollbar-track {
+    background: var(--bg-surface-secondary);
+    border-radius: 3px;
+}
+
+.stats__grid::-webkit-scrollbar-thumb {
+    background: var(--brand-primary);
+    border-radius: 3px;
+    transition: background var(--transition-base);
+}
+
+.stats__grid::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-dark);
+}
+
+/* ── Stat Item — Base ── */
+.stat__item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 7.5rem;
+    background: var(--perf-stat-bg);
+    border-radius: 6px;
+    padding: 1rem 0.75rem;
+    border: 1px solid var(--perf-stat-border);
+    box-shadow: var(--perf-stat-shadow);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow var(--transition-slow), transform var(--transition-slow);
+}
+
+.stat__label {
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: var(--perf-neutral-label);
+}
+
+.stat__value {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    line-height: 1.15;
+    display: block;
+    color: var(--buf-number-color);
+}
+
+.stat__note {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* ── Variante: Neutral ── */
+.stat__item--neutral .stat__label {
+    color: var(--perf-neutral-value);
+}
+
+.stat__item--neutral .stat__value {
+    color: var(--buf-number-color);
+}
+
+/* ── Variante: Success ── */
+.stat__item--success {
+    color: var(--primitive-accent-green);
+    background: var(--primitive-accent-green-bg);
+    border: 1px solid var(--primitive-accent-green-border);
+}
+
+.stat__item--success .stat__label {
+    color: var(--perf-success-label);
+}
+
+.stat__item--success .stat__value {
+    color: var(--perf-success-value);
+}
+
+/* ── Variante: Danger ── */
+.stat__item--danger {
+    color: var(--primitive-accent-red-text);
+    background: var(--primitive-accent-red-bg);
+    border: 1px solid var(--primitive-accent-red-border);
+}
+
+.stat__item--danger .stat__label {
+    color: var(--perf-danger-label);
+}
+
+.stat__item--danger .stat__value {
+    color: var(--perf-danger-value);
+}
+
+/* ── Variante: Highlight ── */
+.stat__item--highlight {
+    background: linear-gradient(135deg,
+            var(--brand-gradient-start) 0%,
+            var(--brand-gradient-end) 100%) !important;
+    border: none !important;
+    box-shadow: var(--perf-highlight-shadow);
+}
+
+.stat__item--highlight .stat__label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--fs-xs);
+}
+
+.stat__item--highlight .stat__value {
+    color: var(--primitive-white);
+    font-weight: 800;
+    font-size: calc(var(--fs-lg) * 1.2);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.stat__item--danger.stat__item--highlight .stat__value {
+    color: var(--primitive-accent-red-light);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.stat__item--success.stat__item--highlight .stat__value {
+    color: var(--primitive-accent-green-light);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ============================================================
+   8. OPERATIONS TABLE
+============================================================ */
+.card--operations {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.operationtable__container {
+    overflow-x: auto;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--op-border);
+    background: var(--op-bg-surface);
+    box-shadow: var(--op-shadow);
+    position: relative;
+}
+
+.operationtable__container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.operationtable__container::-webkit-scrollbar-track {
+    background: var(--op-scrollbar-track);
+}
+
+.operationtable__container::-webkit-scrollbar-thumb {
+    background: var(--op-scrollbar-thumb);
+    border-radius: 2px;
+}
+
+.operationtable__container::-webkit-scrollbar-thumb:hover {
+    background: var(--op-scrollbar-thumb-hover);
+}
+
+.operations__table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.operations__table thead {
+    border-bottom: 1px solid var(--op-border);
+}
+
+.operations__table th {
+    padding: 0.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--op-header-color);
+    background: var(--op-bg-deep);
+    font-weight: 600;
+    border-right: 1px solid var(--op-border-line);
+    font-size: var(--fs-md);
+    letter-spacing: 0.04em;
+}
+
+.operations__table th:last-child {
+    border-right: none;
+}
+
+.operationtable__header-fixed {
+    text-align: left;
+    position: sticky;
+    left: 0;
+    background: var(--op-bg-deep);
+    z-index: 10;
+    width: 10rem;
+    padding-left: 1rem !important;
+    color: var(--op-border);
+    border-right: 2px solid var(--op-border) !important;
+    cursor: pointer;
+    
+}
+
+.operationtable__header-fixed,
+.operationtable__cell-fixed {
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+}
+
+.operations__table tbody tr {
+    border-bottom: 1px solid var(--op-border-sm);
+    transition: background var(--transition-fast);
+}
+
+.operations__table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.operations__table tbody tr:hover {
+    background: var(--op-bg-hover);
+}
+
+.operationtable__cell {
+    padding: 2px 2px;
+    text-align: center;
+    border-right: 1px solid var(--op-border-sm);
+}
+
+.operationtable__cell:last-child {
+    border-right: none;
+}
+
+.operationtable__cell-fixed {
+    padding: 0 1rem 0.5rem 1rem;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-brand);
+    position: sticky;
+    left: 0;
+    background: var(--op-cell-fixed-bg);
+    z-index: 5;
+    border-right: 2px solid var(--op-border);
+    text-align: left;
+    white-space: nowrap;
+    transition: background var(--transition-fast);
+}
+
+.operations__table tbody tr:hover .operationtable__cell-fixed {
+    background: var(--op-cell-fixed-hover);
+}
+
+/* ── Value Chip ── */
+.operationcell__value {
+    border-radius: 3px;
+    padding: 4px 4px;
+    font-weight: 600;
+    font-size: var(--fs-md);
+    letter-spacing: 0.04em;
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    cursor: default;
+}
+
+.operationcell__value:hover {
+    transform: scale(1.08);
+    z-index: 2;
+    position: relative;
+}
+
+.value-success {
+    color: var(--primitive-accent-green);
+    background: var(--primitive-accent-green-bg);
+    border: 1px solid var(--primitive-accent-green-border);
+}
+
+.value-success:hover {
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.25);
+}
+
+.value-critical {
+    color: var(--primitive-accent-red-text);
+    background: var(--primitive-accent-red-bg);
+    border: 1px solid var(--primitive-accent-red-border);
+}
+
+.value-critical:hover {
+    box-shadow: 0 0 10px rgba(248, 113, 113, 0.25);
+}
+
+.value-neutral {
+    color: var(--perf-neutral-value);
+    background: var(--op-chip-neutral-bg);
+    border: 1px solid var(--op-chip-neutral-border);
+}
+
+.value-neutral:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+/* ── Operations Table — paginação dinâmica ── */
+.operationtable__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0 4px;
+}
+
+.operationtable__page-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: none;
+    background: var(--op-scrollbar-thumb);
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.operationtable__page-dot:hover {
+    background: var(--op-scrollbar-thumb-hover);
+    transform: scale(1.3);
+}
+
+.operationtable__page-dot--active {
+    background: var(--brand-primary);
+    transform: scale(1.4);
+}
+
+/* ============================================================
+   9. LINE STATUS CARD
+============================================================ */
+.linestatus-card {
+    width: 100%;
+    background: var(--ls-bg-surface);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--ls-border);
+    box-shadow: var(--ls-shadow);
+    position: relative;
+}
+
+.linestatus-accent {
+    height: 4px;
+    background: var(--status-color);
+    box-shadow: 0 0 16px var(--status-glow);
+}
+
+/* ── Header ── */
+.linestatus-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem 1.125rem;
+    border-bottom: 1px solid var(--ls-border);
+}
+
+.linestatus-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.linestatus-pulse-dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background: var(--status-color);
+    box-shadow: 0 0 8px var(--status-glow);
+    animation: pulse 1s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 6px var(--status-glow);
+    }
+
+    50% {
+        opacity: 0.3;
+        box-shadow: 0 0 2px var(--status-glow);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 6px var(--status-glow);
+    }
+}
+
+.linestatus-label {
+    font-size: var(--fs-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-brand);
+}
+
+.linestatus-priority-badge {
+    font-size: var(--fs-xs);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    background: rgba(255, 0, 0, 0.12);
+    color: var(--status-color);
+    border: 1px solid rgba(255, 0, 0, 0.25);
+}
+
+/* ── Body ── */
+.linestatus-body {
+    padding: 1.125rem;
+}
+
+.linestatus-status-row {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linestatus-title {
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--status-color);
+    text-shadow: 0 0 24px var(--status-glow);
+    text-align: center;
+}
+
+.linestatus-time-block {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+}
+
+/* ── Alarm ── */
+.linestatus-alarm-row {
+    margin-top: 0.875rem;
+    padding: 0.625rem 0.75rem;
+    background: var(--ls-bg-deep);
+    border-left: 3px solid var(--status-color);
+    display: flex;
+    gap: 0.625rem;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+.linestatus-alarm-icon {
+    color: var(--status-color);
+}
+
+.linestatus-alarm-text {
+    font-size: var(--fs-md);
+    color: var(--buf-number-color);
+    word-break: break-all;
+}
+
+/* ── Divider ── */
+.linestatus-divider {
+    height: 1px;
+    background: var(--ls-border);
+}
+
+/* ── Footer ── */
+.linestatus-footer {
+    padding: 0.75rem 1.125rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.linestatus-footer> :nth-child(1) {
+    justify-self: start;
+}
+
+.linestatus-footer> :nth-child(2) {
+    justify-self: center;
+}
+
+.linestatus-footer> :nth-child(3) {
+    justify-self: end;
+}
+
+.linestatus-meta-label {
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-right: 0.5rem;
+}
+
+.linestatus-meta-value {
+    font-size: var(--fs-md);
+    font-weight: 600;
+    color: var(--buf-number-color);
+}
+
+.linestatus-meta-value.highlight {
+    color: var(--ls-text-muted);
+}
+
+/* ── Timestamp ── */
+.linestatus-timestamp-row {
+    padding: 0.625rem 1.125rem;
+    display: flex;
+    justify-content: space-between;
+    background: var(--ls-bg-deep);
+    border-top: 1px solid var(--ls-border-line);
+}
+
+.linestatus-ts-date {
+    font-size: var(--fs-xs);
+    color: var(--ls-text-dim);
+}
+
+.linestatus-ts-time {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--ls-text-mid);
+}
+
+
+/* ============================================================
+   10. THEME TOGGLE
+============================================================ */
+.theme-toggle-btn {
+    position: fixed;
+    bottom: var(--space-xl);
+    right: var(--space-xl);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-brand);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    transition: all var(--transition-slow);
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+    background: var(--bg-surface-secondary);
+}
+
+
+/* ============================================================
+   11. RESPONSIVIDADE
+============================================================ */
+@media (max-width: 1280px) {
+    .stats__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+  
+}
+
+@media (max-width: 768px) {
+    .dashboard__header {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+
+    .dashboard__header-left {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dashboard__header-accent {
+        width: 60px;
+        height: 4px;
+    }
+
+    .dashboard__header-title {
+        font-size: var(--fs-xl);
+    }
+
+    .dashboard__header-time {
+        font-size: var(--fs-lg);
+    }
+
+    .stats__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard__container {
+        padding: var(--space-md);
+    }
+
+    .stats__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .operationtable__header-fixed {
+        min-width: 11.25rem;
+    }
+
+    .card--performance {
+        padding: 1rem;
+    }
+}

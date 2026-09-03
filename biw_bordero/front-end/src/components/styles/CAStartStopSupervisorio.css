@@ -1,0 +1,9 @@
+.CAStartStop1 {
+  font-family: var(--font-family);
+  /* background-color: #1c2b68; */
+  background-color: #eff2f8;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;
+}
